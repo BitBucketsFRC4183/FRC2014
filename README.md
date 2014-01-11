@@ -1,4 +1,4 @@
 FRC2014
 =======
 
-Resources for the 2014 FRC
+This is the robot code for 4183's 2014 robot. Not much to see here yet.
