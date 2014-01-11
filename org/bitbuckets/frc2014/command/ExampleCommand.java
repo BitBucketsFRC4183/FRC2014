@@ -1,5 +1,5 @@
 
-package edu.wpi.first.wpilibj.templates.commands;
+package org.bitbuckets.frc2014.command;
 
 /**
  *

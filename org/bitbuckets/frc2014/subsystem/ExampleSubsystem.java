@@ -1,5 +1,5 @@
 
-package edu.wpi.first.wpilibj.templates.subsystems;
+package org.bitbuckets.frc2014.subsystem;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 

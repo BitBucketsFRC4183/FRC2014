@@ -1,9 +1,9 @@
-package edu.wpi.first.wpilibj.templates.commands;
+package org.bitbuckets.frc2014.command;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.templates.OI;
-import edu.wpi.first.wpilibj.templates.subsystems.ExampleSubsystem;
+import org.bitbuckets.frc2014.OI;
+import org.bitbuckets.frc2014.subsystem.ExampleSubsystem;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.

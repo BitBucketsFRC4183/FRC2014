@@ -1,5 +1,5 @@
 
-package edu.wpi.first.wpilibj.templates;
+package org.bitbuckets.frc2014;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
