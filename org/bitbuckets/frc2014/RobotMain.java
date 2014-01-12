@@ -8,6 +8,7 @@
 package org.bitbuckets.frc2014;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import org.bitbuckets.frc2014.command.CommandBase;
@@ -21,8 +22,14 @@ import org.bitbuckets.frc2014.command.ExampleCommand;
  * directory.
  */
 public class RobotMain extends IterativeRobot {
+    
+    Solenoid solenoid1 = new Solenoid(1, 2);
+    Solenoid solenoid2 = new Solenoid(3, 4);
+    Solenoid solenoid3 = new Solenoid(5, 6);
+    Solenoid solenoid4 = new Solenoid(7, 8);
 
     Command autonomousCommand;
+    OI oi;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -61,5 +68,6 @@ public class RobotMain extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        CommandBase.db.drive(oi.stick.getX(), oi.stick.getY());//our axis are reversed
     }
 }
