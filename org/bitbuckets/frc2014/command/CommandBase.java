@@ -16,6 +16,9 @@ public abstract class CommandBase extends Command {
 
     public static OI oi;
     public static ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+    /**
+     * Drivebase.
+     */
     public static DriveBase db = new DriveBase();
 
     public static void init() {
