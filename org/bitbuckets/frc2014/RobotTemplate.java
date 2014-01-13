@@ -8,6 +8,7 @@
 package org.bitbuckets.frc2014;
 
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Command;
@@ -29,6 +30,7 @@ public class RobotTemplate extends IterativeRobot {
     Solenoid solenoid2 = new Solenoid(3, 4);
     Solenoid solenoid3 = new Solenoid(5, 6);
     Solenoid solenoid4 = new Solenoid(7, 8);
+    Compressor compressor = new Compressor(RobotMap.pressureSwitch, RobotMap.compressorRelay);
     
     Command autonomousCommand;
     OI oi;
@@ -43,6 +45,8 @@ public class RobotTemplate extends IterativeRobot {
 
         // Initialize all subsystems
         CommandBase.init();
+        oi = CommandBase.oi;
+        compressor.start();
     }
 
     public void autonomousInit() {
