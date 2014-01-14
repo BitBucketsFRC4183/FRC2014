@@ -33,7 +33,6 @@ public class RobotTemplate extends IterativeRobot {
     Compressor compressor = new Compressor(RobotMap.pressureSwitch, RobotMap.compressorRelay);
     
     Command autonomousCommand;
-    OI oi;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -45,7 +44,6 @@ public class RobotTemplate extends IterativeRobot {
 
         // Initialize all subsystems
         CommandBase.init();
-        oi = CommandBase.oi;
         compressor.start();
     }
 
@@ -74,7 +72,7 @@ public class RobotTemplate extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        CommandBase.db.drive(oi.stick.getX(), oi.stick.getY());//our axis are reversed
+        CommandBase.db.drive(-CommandBase.oi.stick.getX(), CommandBase.oi.stick.getY());//our axis are reversed
     }
     
     /**
