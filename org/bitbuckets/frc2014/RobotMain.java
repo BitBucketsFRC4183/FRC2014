@@ -8,14 +8,12 @@
 package org.bitbuckets.frc2014;
 
 
-import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.bitbuckets.frc2014.command.CommandBase;
-import org.bitbuckets.frc2014.command.ExampleCommand;
+import org.bitbuckets.frc2014.commands.CommandBase;
+import org.bitbuckets.frc2014.commands.ExampleCommand;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -24,14 +22,8 @@ import org.bitbuckets.frc2014.command.ExampleCommand;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class RobotTemplate extends IterativeRobot {
+public class RobotMain extends IterativeRobot {
 
-    Solenoid solenoid1 = new Solenoid(1, 2);
-    Solenoid solenoid2 = new Solenoid(3, 4);
-    Solenoid solenoid3 = new Solenoid(5, 6);
-    Solenoid solenoid4 = new Solenoid(7, 8);
-    Compressor compressor = new Compressor(RobotMap.pressureSwitch, RobotMap.compressorRelay);
-    
     Command autonomousCommand;
 
     /**
@@ -44,7 +36,6 @@ public class RobotTemplate extends IterativeRobot {
 
         // Initialize all subsystems
         CommandBase.init();
-        compressor.start();
     }
 
     public void autonomousInit() {
@@ -72,7 +63,6 @@ public class RobotTemplate extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        CommandBase.db.drive(-CommandBase.oi.stick.getX(), CommandBase.oi.stick.getY());//our axis are reversed
     }
     
     /**

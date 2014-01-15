@@ -1,10 +1,9 @@
-package org.bitbuckets.frc2014.command;
+package org.bitbuckets.frc2014.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.bitbuckets.frc2014.OI;
-import org.bitbuckets.frc2014.subsystem.DriveBase;
-import org.bitbuckets.frc2014.subsystem.ExampleSubsystem;
+import org.bitbuckets.frc2014.subsystems.ExampleSubsystem;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -15,11 +14,8 @@ import org.bitbuckets.frc2014.subsystem.ExampleSubsystem;
 public abstract class CommandBase extends Command {
 
     public static OI oi;
+    // Create a single static instance of all of your subsystems
     public static ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-    /**
-     * Drivebase.
-     */
-    public static DriveBase db = new DriveBase();
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely

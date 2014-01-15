@@ -1,5 +1,5 @@
 
-package org.bitbuckets.frc2014.command;
+package org.bitbuckets.frc2014.commands;
 
 /**
  *

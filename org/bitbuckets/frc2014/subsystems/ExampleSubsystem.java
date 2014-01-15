@@ -1,5 +1,5 @@
 
-package org.bitbuckets.frc2014.subsystem;
+package org.bitbuckets.frc2014.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
