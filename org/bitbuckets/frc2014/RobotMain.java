@@ -8,6 +8,8 @@
 package org.bitbuckets.frc2014;
 
 
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
@@ -24,6 +26,12 @@ import org.bitbuckets.frc2014.commands.ExampleCommand;
  * directory.
  */
 public class RobotMain extends IterativeRobot {
+    DoubleSolenoid solenoid1 = new DoubleSolenoid(1, 2);
+    DoubleSolenoid solenoid2 = new DoubleSolenoid(3, 4);
+    DoubleSolenoid solenoid3 = new DoubleSolenoid(5, 6);
+    DoubleSolenoid solenoid4 = new DoubleSolenoid(7, 8);
+    
+    Compressor compressor = new Compressor(RobotMap.pressureSwitch, RobotMap.compressorRelay);
 
     Command autonomousCommand;
 
@@ -35,6 +43,8 @@ public class RobotMain extends IterativeRobot {
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
 
+        compressor.start();
+        
         // Initialize all subsystems
         CommandBase.init();
     }
