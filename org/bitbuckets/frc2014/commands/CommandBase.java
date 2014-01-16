@@ -3,6 +3,7 @@ package org.bitbuckets.frc2014.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.bitbuckets.frc2014.OI;
+import org.bitbuckets.frc2014.subsystems.DriveTrain;
 import org.bitbuckets.frc2014.subsystems.ExampleSubsystem;
 
 /**
@@ -14,6 +15,7 @@ import org.bitbuckets.frc2014.subsystems.ExampleSubsystem;
 public abstract class CommandBase extends Command {
 
     public static OI oi;
+    public static DriveTrain dt;
     // Create a single static instance of all of your subsystems
     public static ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 
@@ -24,6 +26,7 @@ public abstract class CommandBase extends Command {
         // yet. Thus, their requires() statements may grab null pointers. Bad
         // news. Don't move it.
         oi = new OI();
+        dt = new DriveTrain();
 
         // Show what command your subsystem is running on the SmartDashboard
         SmartDashboard.putData(exampleSubsystem);

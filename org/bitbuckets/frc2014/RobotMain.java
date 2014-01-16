@@ -63,6 +63,7 @@ public class RobotMain extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        CommandBase.dt.drive(-CommandBase.oi.stick.getX(), CommandBase.oi.stick.getY());//our axis are reversed
     }
     
     /**
