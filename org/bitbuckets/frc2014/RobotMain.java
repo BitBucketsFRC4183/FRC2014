@@ -31,7 +31,7 @@ public class RobotMain extends IterativeRobot {
     DoubleSolenoid solenoid3 = new DoubleSolenoid(5, 6);
     DoubleSolenoid solenoid4 = new DoubleSolenoid(7, 8);
     
-    Compressor compressor = new Compressor(RobotMap.pressureSwitch, RobotMap.compressorRelay);
+    Compressor compressor = new Compressor(RobotMap.PRESSURE_SWITCH, RobotMap.COMPRESSOR_RELAY);
 
     Command autonomousCommand;
 

@@ -12,7 +12,7 @@ public class OI {
     // One type of button is a joystick button which is any button on a joystick.
     // You create one by telling it which joystick it's on and which button
     // number it is.
-    Joystick stick = new Joystick(RobotMap.joy1port);
+    Joystick stick = new Joystick(RobotMap.JOY_1_PORT);
     // Button button = new JoystickButton(stick, buttonNumber);
     
     // Another type of button you can create is a DigitalIOButton, which is

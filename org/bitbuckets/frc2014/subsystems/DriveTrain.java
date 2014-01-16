@@ -15,7 +15,7 @@ public class DriveTrain extends Subsystem {
     
     public DriveTrain() {
         super();
-        drive  = new RobotDrive(RobotMap.rightMotor, RobotMap.leftMotor);
+        drive  = new RobotDrive(RobotMap.R_MOTOR, RobotMap.L_MOTOR);
     }
     
     public void initDefaultCommand() {
