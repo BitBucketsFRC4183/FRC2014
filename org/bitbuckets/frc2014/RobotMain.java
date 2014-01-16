@@ -9,6 +9,7 @@ package org.bitbuckets.frc2014;
 
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -63,7 +64,7 @@ public class RobotMain extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        CommandBase.dt.drive(-CommandBase.oi.stick.getX(), CommandBase.oi.stick.getY());//our axis are reversed
+        CommandBase.dt.drive(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX), CommandBase.oi.stick.getAxis(Joystick.AxisType.kY));//our axis are reversed
     }
     
     /**
