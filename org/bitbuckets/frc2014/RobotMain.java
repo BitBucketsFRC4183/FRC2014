@@ -15,8 +15,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.bitbuckets.frc2014.commands.CommandBase;
-import org.bitbuckets.frc2014.commands.ExampleCommand;
+import org.bitbuckets.frc2014.commands.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -75,6 +74,12 @@ public class RobotMain extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         CommandBase.dt.drive(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX), CommandBase.oi.stick.getAxis(Joystick.AxisType.kY));//our axis are reversed
+        CommandBase.oi.intake_deploy_button.whileHeld(new IntakeBall());
+        CommandBase.oi.intake_roller_button.whenPressed(new RollerOn());
+        CommandBase.oi.intake_roller_button.whenReleased(new RollerOff());
+        CommandBase.oi.intake_deploy_button.whenPressed(new DeployIntake());
+        CommandBase.oi.intake_deploy_button.whenReleased(new RetractIntake());
+        
     }
     
     /**

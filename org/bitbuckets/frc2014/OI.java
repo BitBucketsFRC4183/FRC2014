@@ -2,6 +2,9 @@
 package org.bitbuckets.frc2014;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import org.bitbuckets.frc2014.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -13,7 +16,10 @@ public class OI {
     // You create one by telling it which joystick it's on and which button
     // number it is.
     Joystick stick = new Joystick(RobotMap.JOY_1_PORT);
-    // Button button = new JoystickButton(stick, buttonNumber);
+    Button intake_button = new JoystickButton(stick, 12);
+    Button intake_deploy_button = new JoystickButton(stick, 4);
+    Button intake_roller_button = new JoystickButton(stick, 8);
+    
     
     // Another type of button you can create is a DigitalIOButton, which is
     // a button or switch hooked up to the cypress module. These are useful if
@@ -34,7 +40,7 @@ public class OI {
     
     // Run the command while the button is being held down and interrupt it once
     // the button is released.
-    // button.whileHeld(new ExampleCommand());
+
     
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.

@@ -11,8 +11,14 @@ public class RobotMap {
     // following variables to use with your drivetrain subsystem.
     public static final int R_MOTOR = 1;
     public static final int L_MOTOR = 2;
+    public static final int ROLLER_MOTOR = 3;
     
-    public static final int COMPRESSOR_RELAY = 1;
+    public static final int INTAKE_RAISE_SOLENOID_R = 3;
+    public static final int INTAKE_LOWER_SOLENOID_R = 4;
+    public static final int INTAKE_RAISE_SOLENOID_L = 1;
+    public static final int INTAKE_LOWER_SOLENOID_L = 2;
+    
+    public static final int COMPRESSOR_RELAY = 4;
     
     public static final int PRESSURE_SWITCH = 14;
     
