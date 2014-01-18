@@ -13,10 +13,14 @@ public class RobotMap {
     public static final int L_MOTOR = 2;
     public static final int ROLLER_MOTOR = 3;
     
-    public static final int INTAKE_RAISE_SOLENOID_R = 3;
-    public static final int INTAKE_LOWER_SOLENOID_R = 4;
     public static final int INTAKE_RAISE_SOLENOID_L = 1;
     public static final int INTAKE_LOWER_SOLENOID_L = 2;
+    public static final int INTAKE_RAISE_SOLENOID_R = 3;
+    public static final int INTAKE_LOWER_SOLENOID_R = 4;
+    public static final int CATAPAULT_FIRE_SOLENOID_L = 5;
+    public static final int CATAPAULT_RETRACT_SOLENOID_L = 6;
+    public static final int CATAPAULT_FIRE_SOLENOID_R = 7;
+    public static final int CATAPAULT_RETRACT_SOLENOID_R = 8;
     
     public static final int COMPRESSOR_RELAY = 4;
     

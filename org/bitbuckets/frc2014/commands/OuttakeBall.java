@@ -5,16 +5,17 @@ package org.bitbuckets.frc2014.commands;
  *
  * @author bradmiller
  */
-public class RetractIntake extends CommandBase {
+public class OuttakeBall extends CommandBase {
 
-    public RetractIntake() {
+    public OuttakeBall() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        in.setDeployed(false);
+        in.setDeployed(true);
+        in.setIntakeRoller(1);
     }
 
     // Called repeatedly when this Command is scheduled to run

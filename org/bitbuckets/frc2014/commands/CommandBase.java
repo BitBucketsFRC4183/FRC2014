@@ -3,6 +3,7 @@ package org.bitbuckets.frc2014.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.bitbuckets.frc2014.OI;
+import org.bitbuckets.frc2014.subsystems.Catapault;
 import org.bitbuckets.frc2014.subsystems.DriveTrain;
 import org.bitbuckets.frc2014.subsystems.Intake;
 import org.bitbuckets.frc2014.subsystems.ExampleSubsystem;
@@ -17,7 +18,8 @@ public abstract class CommandBase extends Command {
 
     public static OI oi;
     public static DriveTrain dt;
-    public static Intake in;
+    protected static Intake in;
+    protected static Catapault cp;
     // Create a single static instance of all of your subsystems
     public static ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 
@@ -29,6 +31,8 @@ public abstract class CommandBase extends Command {
         // news. Don't move it.
         oi = new OI();
         dt = new DriveTrain();
+        in = new Intake();
+        cp = new Catapault();
 
         // Show what command your subsystem is running on the SmartDashboard
         SmartDashboard.putData(exampleSubsystem);

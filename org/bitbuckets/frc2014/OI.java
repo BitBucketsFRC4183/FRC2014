@@ -16,9 +16,11 @@ public class OI {
     // You create one by telling it which joystick it's on and which button
     // number it is.
     Joystick stick = new Joystick(RobotMap.JOY_1_PORT);
-    Button intake_button = new JoystickButton(stick, 12);
-    Button intake_deploy_button = new JoystickButton(stick, 4);
-    Button intake_roller_button = new JoystickButton(stick, 8);
+    Button fireButton = new JoystickButton(stick, 1);
+    Button intakeDeployButton = new JoystickButton(stick, 4);
+    Button outtakeButton = new JoystickButton(stick, 6);
+    Button intakeRollerButton = new JoystickButton(stick, 8);
+    Button intakeButton = new JoystickButton(stick, 12);
     
     
     // Another type of button you can create is a DigitalIOButton, which is

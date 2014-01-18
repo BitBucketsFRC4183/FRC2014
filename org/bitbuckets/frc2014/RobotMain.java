@@ -25,10 +25,6 @@ import org.bitbuckets.frc2014.commands.*;
  * directory.
  */
 public class RobotMain extends IterativeRobot {
-    DoubleSolenoid solenoid1 = new DoubleSolenoid(1, 2);
-    DoubleSolenoid solenoid2 = new DoubleSolenoid(3, 4);
-    DoubleSolenoid solenoid3 = new DoubleSolenoid(5, 6);
-    DoubleSolenoid solenoid4 = new DoubleSolenoid(7, 8);
     
     Compressor compressor = new Compressor(RobotMap.PRESSURE_SWITCH, RobotMap.COMPRESSOR_RELAY);
 
@@ -41,8 +37,6 @@ public class RobotMain extends IterativeRobot {
     public void robotInit() {
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
-
-        compressor.start();
         
         // Initialize all subsystems
         CommandBase.init();
@@ -64,7 +58,10 @@ public class RobotMain extends IterativeRobot {
 	// This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
-        // this line or comment it out.
+        // this line or commen tit out.
+        
+        compressor.start();
+        
         autonomousCommand.cancel();
     }
 
@@ -74,11 +71,16 @@ public class RobotMain extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         CommandBase.dt.drive(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX), CommandBase.oi.stick.getAxis(Joystick.AxisType.kY));//our axis are reversed
-        CommandBase.oi.intake_deploy_button.whileHeld(new IntakeBall());
-        CommandBase.oi.intake_roller_button.whenPressed(new RollerOn());
-        CommandBase.oi.intake_roller_button.whenReleased(new RollerOff());
-        CommandBase.oi.intake_deploy_button.whenPressed(new DeployIntake());
-        CommandBase.oi.intake_deploy_button.whenReleased(new RetractIntake());
+        CommandBase.oi.fireButton.whenPressed(new Fire());
+        CommandBase.oi.fireButton.whenReleased(new UnFire());
+        CommandBase.oi.intakeRollerButton.whenPressed(new RollerOn());
+        CommandBase.oi.intakeRollerButton.whenReleased(new RollerOff());
+        CommandBase.oi.outtakeButton.whenPressed(new OuttakeBall());
+        CommandBase.oi.outtakeButton.whenReleased(new IntakeBallOff());
+        CommandBase.oi.intakeDeployButton.whenPressed(new DeployIntake());
+        CommandBase.oi.intakeDeployButton.whenReleased(new RetractIntake());
+        CommandBase.oi.intakeButton.whenPressed(new IntakeBall());
+        CommandBase.oi.intakeButton.whenReleased(new IntakeBallOff());
         
     }
     

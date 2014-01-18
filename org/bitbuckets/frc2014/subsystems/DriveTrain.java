@@ -24,7 +24,7 @@ public class DriveTrain extends Subsystem {
     }
     
     public void drive(double outputMagnitude, double curve){
-        drive.drive(outputMagnitude, curve);
+        drive.arcadeDrive(outputMagnitude, -curve);
     }
 }
 
