@@ -15,8 +15,8 @@ public class IntakeBallOff extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        in.setDeployed(false);
-        in.setIntakeRoller(0);
+        in.setDeployed(false);//Brings in the intake.
+        in.setIntakeRoller(0);//Stops the roller.
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -25,7 +25,7 @@ public class IntakeBallOff extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return true;//Stops the command from running indefinately.
     }
 
     // Called once after isFinished returns true

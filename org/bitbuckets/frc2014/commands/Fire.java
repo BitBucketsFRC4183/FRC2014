@@ -15,7 +15,7 @@ public class Fire extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        cp.setCatapaultFired(false);
+        cp.setCatapaultFired(false);//Makes the catapault go up
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -24,7 +24,7 @@ public class Fire extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return true;//Stops the command from running indefinately.
     }
 
     // Called once after isFinished returns true

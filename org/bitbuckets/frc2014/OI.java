@@ -15,9 +15,21 @@ public class OI {
     // One type of button is a joystick button which is any button on a joystick.
     // You create one by telling it which joystick it's on and which button
     // number it is.
+    /**
+     * The main joystick, will be a eStop Robotics CCI(Custom Control Interface)
+     */
     public Joystick stick = new Joystick(RobotMap.JOY_1_PORT);
+    /**
+     * The button that fires the ball.
+     */
     public Button fireButton = new JoystickButton(stick, 1);
+    /**
+     * The button that deploys the intake.
+     */
     public Button intakeDeployButton = new JoystickButton(stick, 4);
+    /**
+     * The button that makes the intake go backwards.
+     */
     public Button outtakeButton = new JoystickButton(stick, 6);
     public Button intakeRollerButton = new JoystickButton(stick, 8);
     public Button intakeButton = new JoystickButton(stick, 12);

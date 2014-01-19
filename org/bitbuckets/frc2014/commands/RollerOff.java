@@ -15,7 +15,7 @@ public class RollerOff extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        in.setIntakeRoller(0);
+        in.setIntakeRoller(0);//Turns the roller off.
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -24,7 +24,7 @@ public class RollerOff extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return true;//Stops the command from running indefinately.
     }
 
     // Called once after isFinished returns true

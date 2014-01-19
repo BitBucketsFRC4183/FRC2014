@@ -15,7 +15,7 @@ public class RollerOn extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        in.setIntakeRoller(1);
+        in.setIntakeRoller(-1);//Makes the roller go in.
     }
 
     // Called repeatedly when this Command is scheduled to run
