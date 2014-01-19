@@ -25,10 +25,11 @@ import org.bitbuckets.frc2014.commands.*;
  * directory.
  */
 public class RobotMain extends IterativeRobot {
-    
-    Compressor compressor = new Compressor(RobotMap.PRESSURE_SWITCH, RobotMap.COMPRESSOR_RELAY);
-
-    Command autonomousCommand;
+    /**
+     * The compressor.
+     */
+    private Compressor compressor = new Compressor(RobotMap.PRESSURE_SWITCH, RobotMap.COMPRESSOR_RELAY);
+    private Command autonomousCommand;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -40,8 +41,21 @@ public class RobotMain extends IterativeRobot {
         
         // Initialize all subsystems
         CommandBase.init();
+        CommandBase.oi.fireButton.whenPressed(new Fire());
+        CommandBase.oi.fireButton.whenReleased(new UnFire());
+        CommandBase.oi.intakeRollerButton.whenPressed(new RollerOn());
+        CommandBase.oi.intakeRollerButton.whenReleased(new RollerOff());
+        CommandBase.oi.outtakeButton.whenPressed(new OuttakeBall());
+        CommandBase.oi.outtakeButton.whenReleased(new IntakeBallOff());
+        CommandBase.oi.intakeDeployButton.whenPressed(new DeployIntake());
+        CommandBase.oi.intakeDeployButton.whenReleased(new RetractIntake());
+        CommandBase.oi.intakeButton.whenPressed(new IntakeBall());
+        CommandBase.oi.intakeButton.whenReleased(new IntakeBallOff());
     }
 
+    /**
+     * The method run at the beginning of autonomous.
+     */
     public void autonomousInit() {
         // schedule the autonomous command (example)
         autonomousCommand.start();
@@ -54,6 +68,9 @@ public class RobotMain extends IterativeRobot {
         Scheduler.getInstance().run();
     }
 
+    /**
+     * The code that runs at the beginning of teleop.
+     */
     public void teleopInit() {
 	// This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to 
@@ -62,7 +79,7 @@ public class RobotMain extends IterativeRobot {
         
         compressor.start();
         
-        new DriveTeleop();
+        //new DriveTeleop();
         
         autonomousCommand.cancel();
     }
@@ -72,16 +89,8 @@ public class RobotMain extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        CommandBase.oi.fireButton.whenPressed(new Fire());
-        CommandBase.oi.fireButton.whenReleased(new UnFire());
-        CommandBase.oi.intakeRollerButton.whenPressed(new RollerOn());
-        CommandBase.oi.intakeRollerButton.whenReleased(new RollerOff());
-        CommandBase.oi.outtakeButton.whenPressed(new OuttakeBall());
-        CommandBase.oi.outtakeButton.whenReleased(new IntakeBallOff());
-        CommandBase.oi.intakeDeployButton.whenPressed(new DeployIntake());
-        CommandBase.oi.intakeDeployButton.whenReleased(new RetractIntake());
-        CommandBase.oi.intakeButton.whenPressed(new IntakeBall());
-        CommandBase.oi.intakeButton.whenReleased(new IntakeBallOff());
+        CommandBase.dt.drive(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX), CommandBase.oi.stick.getAxis(Joystick.AxisType.kY));
+
     }
     
     /**
