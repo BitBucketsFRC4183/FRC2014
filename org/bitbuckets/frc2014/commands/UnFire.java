@@ -10,6 +10,7 @@ public class UnFire extends CommandBase {
     public UnFire() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        requires(cp);
     }
 
     // Called just before this Command runs the first time

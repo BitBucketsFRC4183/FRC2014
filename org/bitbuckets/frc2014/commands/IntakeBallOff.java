@@ -10,6 +10,7 @@ public class IntakeBallOff extends CommandBase {
     public IntakeBallOff() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        requires(in);
     }
 
     // Called just before this Command runs the first time
