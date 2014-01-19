@@ -1,8 +1,7 @@
 
 package org.bitbuckets.frc2014.commands;
 
-import org.bitbuckets.frc2014.RobotMain;
-import org.bitbuckets.frc2014.subsystems.DriveTrain;
+import edu.wpi.first.wpilibj.Joystick;
 
 /**
  *
@@ -22,7 +21,7 @@ public class DriveTeleop extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        dt.drive(RobotMain.power, RobotMain.differential);
+        dt.drive(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX), CommandBase.oi.stick.getAxis(Joystick.AxisType.kY));//our axis are reversed
     }
 
     // Make this return true when this Command no longer needs to run execute()
