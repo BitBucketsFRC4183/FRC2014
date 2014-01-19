@@ -27,6 +27,7 @@ import org.bitbuckets.frc2014.commands.*;
 public class RobotMain extends IterativeRobot {
     
     Compressor compressor = new Compressor(RobotMap.PRESSURE_SWITCH, RobotMap.COMPRESSOR_RELAY);
+    public static double power = 0, differential = 0;
 
     Command autonomousCommand;
 
@@ -62,6 +63,8 @@ public class RobotMain extends IterativeRobot {
         
         compressor.start();
         
+        new DriveTeleop();
+        
         autonomousCommand.cancel();
     }
 
@@ -70,7 +73,8 @@ public class RobotMain extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        CommandBase.dt.drive(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX), CommandBase.oi.stick.getAxis(Joystick.AxisType.kY));//our axis are reversed
+        power = CommandBase.oi.stick.getAxis(Joystick.AxisType.kX);
+        differential = CommandBase.oi.stick.getAxis(Joystick.AxisType.kY);//our axis are reversed
         CommandBase.oi.fireButton.whenPressed(new Fire());
         CommandBase.oi.fireButton.whenReleased(new UnFire());
         CommandBase.oi.intakeRollerButton.whenPressed(new RollerOn());
