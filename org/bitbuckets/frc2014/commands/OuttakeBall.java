@@ -15,7 +15,7 @@ public class OuttakeBall extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        in.setDeployed(true);//Makes the intake go out.
+        //in.setDeployed(true);//Makes the intake go out.
         in.setIntakeRoller(1);//Makes the roller go backwards.
     }
 

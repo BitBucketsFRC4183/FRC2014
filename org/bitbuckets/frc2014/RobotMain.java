@@ -49,7 +49,7 @@ public class RobotMain extends IterativeRobot {
         CommandBase.oi.intakeRollerButton.whenPressed(new RollerOn());
         CommandBase.oi.intakeRollerButton.whenReleased(new RollerOff());
         CommandBase.oi.outtakeButton.whenPressed(new OuttakeBall());
-        CommandBase.oi.outtakeButton.whenReleased(new IntakeBallOff());
+        CommandBase.oi.outtakeButton.whenReleased(new RollerOff());
         CommandBase.oi.intakeDeployButton.whenPressed(new DeployIntake());
         CommandBase.oi.intakeDeployButton.whenReleased(new RetractIntake());
         CommandBase.oi.intakeButton.whenPressed(new IntakeBall());
@@ -95,7 +95,7 @@ public class RobotMain extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         //CommandBase.dt.drive(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX), CommandBase.oi.stick.getAxis(Joystick.AxisType.kY));
-        winch.set(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX));
+        //winch.set(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX));
     }
     
     /**
