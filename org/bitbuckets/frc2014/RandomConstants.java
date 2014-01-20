@@ -12,7 +12,9 @@ package org.bitbuckets.frc2014;
  */
 public class RandomConstants {
     
-    public static final double maxMagChange = .5;
-    public static final double maxCurChange = .5;
+    public static final double MAX_MAG_CHANGE = .5;
+    public static final double MAX_CUR_CHANGE = .5;
+    
+    public static final double WINCH_SPEED = .2;
     
 }

@@ -21,45 +21,37 @@ public class RobotMap {
      * The left motor for the roller intake
      */
     public static final int ROLLER_MOTOR = 3;
+    /**
+     * 
+     */
+    public static final int WINCH_MOTOR = 4;
     
     /**
-     * The left solenoid for the intake to raise
+     * The first port for the double solenoid controlling the winch shifter.
      */
-    public static final int INTAKE_RAISE_SOLENOID_L = 1;
+    public static final int WINCH_SHIFTER_1 = 1;
     /**
-     * The left solenoid for the intake to lower
+     * The second port for the double solenoid controlling the winch shifter.
      */
-    public static final int INTAKE_LOWER_SOLENOID_L = 2;
+    public static final int WINCH_SHIFTER_2 = 2;
     /**
-     * The right solenoid that raises the intake
+     * The first port for the double solenoid controlling the intake pistons.
      */
-    public static final int INTAKE_RAISE_SOLENOID_R = 3;
+    public static final int INTAKE_SOLENOID_1 = 3;
     /**
-     * The right solenoid that lowers the intake
+     * The second port for the double solenoid controlling the intake pistons.
      */
-    public static final int INTAKE_LOWER_SOLENOID_R = 4;
-    /**
-     * The left solenoid that fires the catapult
-     */
-    public static final int CATAPAULT_FIRE_SOLENOID_L = 5;
-    /**
-     * The left solenoid that retracts the catapult
-     */
-    public static final int CATAPAULT_RETRACT_SOLENOID_L = 6;
-    /**
-     * The right solenoid that fires the catapult
-     */
-    public static final int CATAPAULT_FIRE_SOLENOID_R = 7;
-    /**
-     * The right catapult that retracts the catapult
-     */
-    public static final int CATAPAULT_RETRACT_SOLENOID_R = 8;
+    public static final int INTAKE_SOLENOID_2 = 4;
     
     /**
      * The relay the compressor is plugged in to
      */
     public static final int COMPRESSOR_RELAY = 4;
     
+    /**
+     * The limit switch that says when the catapult is all the way back.
+     */
+    public static final int CATAPAULT_LIMIT_SWITCH = 1;
     /**
      * The switch that tells the compressor the max pressure
      */

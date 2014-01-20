@@ -37,10 +37,10 @@ public class DriveTrain extends Subsystem {
         if(dCur < 1)
             signCur = -1;
         
-        if(Math.abs(dMag) > RandomConstants.maxMagChange)
-            dMag = RandomConstants.maxMagChange*signCur;
-        if(Math.abs(dCur) > RandomConstants.maxCurChange)
-            dCur = RandomConstants.maxCurChange*signCur;
+        if(Math.abs(dMag) > RandomConstants.MAX_MAG_CHANGE)
+            dMag = RandomConstants.MAX_MAG_CHANGE*signCur;
+        if(Math.abs(dCur) > RandomConstants.MAX_CUR_CHANGE)
+            dCur = RandomConstants.MAX_CUR_CHANGE*signCur;
         
         drive.arcadeDrive(magnitudeBefore + dMag, -(curveBefore+dCur));
         magnitudeBefore = magnitudeBefore + dMag;

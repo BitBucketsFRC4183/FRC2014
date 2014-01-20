@@ -14,14 +14,12 @@ public class Intake extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     private Victor roller;
-    private DoubleSolenoid deployerR;
-    private DoubleSolenoid deployerL;
+    private DoubleSolenoid deployer;
     
     public Intake() {
         super();
         roller  = new Victor(RobotMap.ROLLER_MOTOR);
-        deployerR = new DoubleSolenoid(RobotMap.INTAKE_RAISE_SOLENOID_R, RobotMap.INTAKE_LOWER_SOLENOID_R);
-        deployerL = new DoubleSolenoid(RobotMap.INTAKE_RAISE_SOLENOID_L, RobotMap.INTAKE_LOWER_SOLENOID_L);
+        deployer = new DoubleSolenoid(RobotMap.INTAKE_SOLENOID_1, RobotMap.INTAKE_SOLENOID_2);
     }
     
     public void initDefaultCommand() {
@@ -34,11 +32,9 @@ public class Intake extends Subsystem {
     
     public void setDeployed(boolean deployed) {
         if(deployed) {
-            deployerR.set(DoubleSolenoid.Value.kForward);
-            deployerL.set(DoubleSolenoid.Value.kForward);
+            deployer.set(DoubleSolenoid.Value.kForward);
         } else {
-            deployerR.set(DoubleSolenoid.Value.kReverse);
-            deployerL.set(DoubleSolenoid.Value.kReverse);
+            deployer.set(DoubleSolenoid.Value.kReverse);
         }
     }
 }

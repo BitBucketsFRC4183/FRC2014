@@ -22,7 +22,11 @@ public class OI {
     /**
      * The button that fires the ball.
      */
-    public Button fireButton = new JoystickButton(stick, 3);
+    public Button fireButton = new JoystickButton(stick, 1);
+    /**
+     * 
+     */
+    public Button retractButton = new JoystickButton(stick, 2);
     /**
      * The button that deploys the intake.
      */

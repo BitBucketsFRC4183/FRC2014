@@ -15,7 +15,7 @@ public class Fire extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        cp.setCatapaultFired(false);//Makes the catapault go up
+        cp.setCatapaultFired(true);//Makes the catapault go up
     }
 
     // Called repeatedly when this Command is scheduled to run

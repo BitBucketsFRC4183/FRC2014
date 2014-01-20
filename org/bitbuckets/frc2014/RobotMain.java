@@ -9,9 +9,9 @@ package org.bitbuckets.frc2014;
 
 
 import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -30,6 +30,7 @@ public class RobotMain extends IterativeRobot {
      */
     private Compressor compressor = new Compressor(RobotMap.PRESSURE_SWITCH, RobotMap.COMPRESSOR_RELAY);
     private Command autonomousCommand;
+    private Victor winch;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -39,10 +40,12 @@ public class RobotMain extends IterativeRobot {
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
         
+        winch = new Victor(4);
+        
         // Initialize all subsystems
         CommandBase.init();
         CommandBase.oi.fireButton.whenPressed(new Fire());
-        CommandBase.oi.fireButton.whenReleased(new UnFire());
+        CommandBase.oi.retractButton.whenPressed(new UnFire());
         CommandBase.oi.intakeRollerButton.whenPressed(new RollerOn());
         CommandBase.oi.intakeRollerButton.whenReleased(new RollerOff());
         CommandBase.oi.outtakeButton.whenPressed(new OuttakeBall());
@@ -77,6 +80,8 @@ public class RobotMain extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or commen tit out.
         
+        System.out.print("I LIKE PI");
+        
         compressor.start();
         
         //new DriveTeleop();
@@ -84,13 +89,13 @@ public class RobotMain extends IterativeRobot {
         autonomousCommand.cancel();
     }
 
-    /**
+    /**0
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        CommandBase.dt.drive(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX), CommandBase.oi.stick.getAxis(Joystick.AxisType.kY));
-
+        //CommandBase.dt.drive(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX), CommandBase.oi.stick.getAxis(Joystick.AxisType.kY));
+        winch.set(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX));
     }
     
     /**
