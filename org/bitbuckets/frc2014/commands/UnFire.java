@@ -20,18 +20,18 @@ public class UnFire extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        //cp.setCatapaultRetracted(true);
+        cp.setCatapaultRetracted(true);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        //return cp.retracted.get();
-        return true;
+        return cp.retracted.get();
+//        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        //cp.setCatapaultRetracted(false);
+        cp.setCatapaultRetracted(false);
     }
 
     // Called when another command which requires one or more of the same

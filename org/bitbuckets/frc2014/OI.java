@@ -36,13 +36,13 @@ public class OI {
      */
     public Button outtakeButton = new JoystickButton(stick, 6);
     /**
-     * The button that makes the intake roller roll in.
-     */
-    public Button intakeRollerButton = new JoystickButton(stick, 8);
-    /**
      * The button that deploys the intake and runs the roller.
      */
-    public Button intakeButton = new JoystickButton(stick, 12);
+    public Button intakeButton = new JoystickButton(stick, 8);
+    /**
+     * The button that makes the intake roller roll in.
+     */
+    public Button intakeRollerButton = new JoystickButton(stick, 12);
     
     
     // Another type of button you can create is a DigitalIOButton, which is

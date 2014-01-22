@@ -15,6 +15,6 @@ public class RandomConstants {
     public static final double MAX_MAG_CHANGE = .5;
     public static final double MAX_CUR_CHANGE = .5;
     
-    public static final double WINCH_SPEED = .2;
+    public static final double WINCH_SPEED = 1;
     
 }
