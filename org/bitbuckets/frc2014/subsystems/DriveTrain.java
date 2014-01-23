@@ -25,7 +25,11 @@ public class DriveTrain extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    
+    /**
+     * Basic driving method.  Can be used in autonomous and teleop.
+     * @param outputMagnitude
+     * @param curve 
+     */
     public void drive(double outputMagnitude, double curve){
         double dMag = outputMagnitude - magnitudeBefore;
         double dCur = curve - curveBefore;
@@ -45,6 +49,35 @@ public class DriveTrain extends Subsystem {
         drive.arcadeDrive(magnitudeBefore + dMag, -(curveBefore+dCur));
         magnitudeBefore = magnitudeBefore + dMag;
         curveBefore = curveBefore + dCur;
+    }
+    /**
+     * More sophicsticated driving method for teleop.
+     * @param outputMagnitude
+     * @param curve 
+     */
+    public void cheesyDrive(double outputMagnitude, double curve) {
+        //See http://www.chiefdelphi.com/forums/showpost.php?p=1181728&postcount=2 for reference.
+        if(outputMagnitude >= RandomConstants.THROTTLE_CUTOFF)
+            curve *= (RandomConstants.TURN_GAIN * Math.abs(outputMagnitude));
+        
+        double tLeft = outputMagnitude + curve;
+        double tRight = outputMagnitude - curve;
+
+        drive.tankDrive(tLeft + skim(tRight), tRight + skim(tLeft));
+    }
+    
+    /**
+     * If drive speed for one side > 1, subtract some of the difference from other side's speed to maintain constant turning performance.
+     * Used in cheesyDrive.
+     * @param v
+     * @return 
+     */
+    public double skim(double v) {
+        if(v > 1.0) {
+            return -((v - 1.0) * RandomConstants.SKIM_GAIN);
+        } else if (v < -1.0)
+            return -((v + 1.0) * RandomConstants.SKIM_GAIN);
+        return 0;
     }
 }
 

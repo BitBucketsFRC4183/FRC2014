@@ -12,9 +12,14 @@ package org.bitbuckets.frc2014;
  */
 public class RandomConstants {
     
+    //Drivetrain:
     public static final double MAX_MAG_CHANGE = .5;
     public static final double MAX_CUR_CHANGE = .5;
+    public static final double SKIM_GAIN = .5;
+    public static final double TURN_GAIN = 1.0;
+    public static final double THROTTLE_CUTOFF = .3;
     
-    public static final double WINCH_SPEED = 1;
+    //Catapult
+    public static final double WINCH_SPEED = 1.0;
     
 }
