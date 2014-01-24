@@ -13,8 +13,8 @@ public class DriveTrain extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public RobotDrive drive;
-    double magnitudeBefore = 1;
-    double curveBefore = 1;
+    double throttle = 1;
+    double rotation = 1;
     
     public DriveTrain() {
         super();
@@ -30,26 +30,12 @@ public class DriveTrain extends Subsystem {
      * @param outputMagnitude
      * @param curve 
      */
-    public void drive(double outputMagnitude, double curve){
-        double dMag = outputMagnitude - magnitudeBefore;
-        double dCur = curve - curveBefore;
-        int signMag = 1;
-        int signCur = 1;
-        
-        if(dMag < 1)
-            signMag = -1;
-        if(dCur < 1)
-            signCur = -1;
-        
-        if(Math.abs(dMag) > RandomConstants.MAX_MAG_CHANGE)
-            dMag = RandomConstants.MAX_MAG_CHANGE*signCur;
-        if(Math.abs(dCur) > RandomConstants.MAX_CUR_CHANGE)
-            dCur = RandomConstants.MAX_CUR_CHANGE*signCur;
-        
-        drive.arcadeDrive(magnitudeBefore + dMag, -(curveBefore+dCur));
-        magnitudeBefore = magnitudeBefore + dMag;
-        curveBefore = curveBefore + dCur;
+    public void drive(double throttle, double rotation){
+        this.throttle = accelerationLimiter(this.throttle, throttle, RandomConstants.MAX_MAG_CHANGE);
+        this.rotation = accelerationLimiter(this.rotation, rotation, RandomConstants.MAX_CUR_CHANGE);
+        drive.arcadeDrive(this.throttle, -this.rotation);
     }
+    
     /**
      * More sophicsticated driving method for teleop.
      * @param outputMagnitude
@@ -78,6 +64,23 @@ public class DriveTrain extends Subsystem {
         } else if (v < -1.0)
             return -((v + 1.0) * RandomConstants.SKIM_GAIN);
         return 0;
+    }
+    
+    /**
+     * 
+     * 
+     * @param oldValue The value from the previous iteration.
+     * @param requestedValue The value being requested to be changed to.
+     * @param maxChange The maximum amount the value can change per iteration.
+     * @return The limited value.
+     */
+    public double accelerationLimiter(double oldValue, double requestedValue, double maxChange){
+        if(requestedValue - oldValue > maxChange)
+            return oldValue + maxChange;
+        else if(oldValue - requestedValue > maxChange)
+            return oldValue - maxChange;
+        else
+            return requestedValue;
     }
 }
 

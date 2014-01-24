@@ -89,7 +89,7 @@ public class RobotMain extends IterativeRobot {
         autonomousCommand.cancel();
     }
 
-    /**0
+    /**
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
