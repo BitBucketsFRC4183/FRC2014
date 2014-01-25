@@ -4,25 +4,26 @@ package org.bitbuckets.frc2014.commands;
 import edu.wpi.first.wpilibj.SpeedController;
 import java.util.Calendar;
 import java.util.TimeZone;
+import org.bitbuckets.frc2014.RandomConstants;
 
 /**
  *
  * @author bradmiller
  */
 
-public class DriveMotorTime extends CommandBase {
+public class DriveMotorMPerS extends CommandBase {
     
     private int time;
-    private int speed;
+    private double speed;
     private SpeedController controlSpeed;
     private long initTime;
     
-    public DriveMotorTime(int time, int speed, SpeedController controlSpeed) {
+    public DriveMotorMPerS(int time, int speed, SpeedController controlSpeed) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         this.time = time;
         this.controlSpeed= controlSpeed;
-        this.speed = speed;
+        this.speed = (double)(speed/RandomConstants.M_PER_S_TO_PERCENT);
     }
 
     // Called just before this Command runs the first time
