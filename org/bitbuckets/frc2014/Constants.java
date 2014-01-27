@@ -1,17 +1,33 @@
 package org.bitbuckets.frc2014;
 
 import java.util.Hashtable;
+import java.io.IOException;
+import javax.microedition.io.Connector;
+import com.sun.squawk.microedition.io.FileConnection;
+import java.io.DataInputStream;
+
 
 /**
- *
+ * CSV constants class.
+ * Access and update constants on-the-fly in an external CSV file. Format the 
+ * constants as follows:
+ *      constant1,0.0
+ *      intakeChannel,2
+ *      autoRotation,45
+ * place in an external file.
+ * Parse the file before any constants are used:
+ *      Constants.parseCSV("filepath");
+ * Accessing a constant is easy:
+ *      Constants.get("constant1");         //returns a double, 0.0
+ *      Constants.get("intakeChannel");     //returns a double, 2.0
+ *      Constants.getInt("intakeChannel");  //returns an int, 2
+ * 
  * @author forbesk
  */
 public class Constants {
-    private String filepath;
-    private Hashtable vars;
+    private static Hashtable vars;
     
     public Constants(String file) {
-        filepath = "file:///" + file;
         vars = new Hashtable();
     }
     
@@ -21,15 +37,44 @@ public class Constants {
     First step is to remove all current constants, should the user desire to 
     reload all constants.
     The csv should be formatted as such:
-        <constantName> <value>
+        <constantName>,<value>
     where constantName is in lowerCamelCase and value is a double. Each constant
     should be on its own line.
     
     Returns true if the operation was successful and false otherwise.
     */
-    public boolean parseCSV() {
-        //TODO: implement comma separated value parsing here
-        return false;
+    public static boolean parseCSV(String filepath) {
+        FileConnection connection;
+        DataInputStream stream;
+        
+        try {
+            connection = (FileConnection)Connector.open(filepath, Connector.READ);
+            stream = connection.openDataInputStream();
+            
+            while(stream.available() > 0) {
+                String key = "";
+                String value = "";
+                char inchar;
+                
+                //read in a constant
+                while(stream.available() > 0 && (inchar = stream.readChar()) != ',') {
+                    key += inchar;
+                }
+                while(stream.available() > 0 && (inchar = stream.readChar()) != '\n') {
+                    value += inchar;
+                }
+                vars.put(key, Double.valueOf(value));
+            }
+            
+            stream.close();
+            connection.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("WARNING: Couldn't read constants file!");
+            return false;
+        }
+        
+        return true;
     }
     
     /*
