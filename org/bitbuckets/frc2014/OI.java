@@ -46,7 +46,7 @@ public class OI {
      /**
      * The button that starts and stops the lights
      */
-    public Button lightsOnOffButton = new JoystickButton(stick, //needs to be bound to button//;
+    //public Button lightsOnOffButton = new JoystickButton(stick, //needs to be bound to button//;
    
     
     

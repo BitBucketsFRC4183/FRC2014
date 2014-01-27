@@ -1,5 +1,7 @@
 
-package bitbuckets.frc2014.commands;
+package org.bitbuckets.frc2014.commands;
+
+import org.bitbuckets.frc2014.subsystems.Lights;
 
 /**
  * Made by Nathan
@@ -18,10 +20,10 @@ public class SimpleLights extends CommandBase {
         * if on turns them off
         * if off turns them on
         */
-        if(Lights.isOn == true) {//checks if lights are on
-            Lights.changeLights(false); //turn lights off
+        if(li.isOn()) {//checks if lights are on
+            li.changeLights(false); //turn lights off
         } else { //if not
-            Lights.changeLights(true);//turn lights on
+            li.changeLights(true);//turn lights on
 }
     }
 

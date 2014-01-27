@@ -1,5 +1,5 @@
 
-package bitbuckets.frc2014.subsystems;
+package org.bitbuckets.frc2014.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Relay;
@@ -26,20 +26,20 @@ public class Lights extends Subsystem {
     }
     
     public void changeLights(boolean lightOn){
-        public boolean isOnVar = lightOn;
+        boolean isOnVar = lightOn;
         
         /**
          * if set to true turns lights on
          * if set to false turns lights off
         */
-        if (lightOn == true){
-            public static light1.Value kOn;//I know this is wrong but don't know how to fix it
-            }else{
-            public static light1.Value kOff;//same
+        if (lightOn){
+            light1.set(Relay.Value.kOn);
+        } else {
+            light1.set(Relay.Value.kOff);
         }
     }
-    public boolean isOn(isOnVar){
-        return isOnVar;
+    public boolean isOn() {
+        return lightOn;
         /**
          * if its true lights on
          * if false lights off
