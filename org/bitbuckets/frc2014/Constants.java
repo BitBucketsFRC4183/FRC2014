@@ -25,17 +25,17 @@ import java.io.DataInputStream;
  * @author forbesk
  */
 public class Constants {
-    private static Hashtable vars;
+    private static Hashtable vars = new Hashtable();
     
-    public Constants(String file) {
-        vars = new Hashtable();
+    private Constants() {
+        
     }
     
     /*
     parseCVS
     Reads a comma-separated values file and stores each line as a new constant.
-    First step is to remove all current constants, should the user desire to 
-    reload all constants.
+    Because a hash table is used, values are overwritten if parseCSV is called
+    more than once, allowing on-the-fly adjusting of constants.
     The csv should be formatted as such:
         <constantName>,<value>
     where constantName is in lowerCamelCase and value is a double. Each constant
