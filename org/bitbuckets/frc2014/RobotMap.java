@@ -22,7 +22,7 @@ public class RobotMap {
      */
     public static final int ROLLER_MOTOR = 3;
     /**
-     * 
+     * Mini-CIMs driving ball-shifter winch.
      */
     public static final int WINCH_MOTOR = 4;
     
