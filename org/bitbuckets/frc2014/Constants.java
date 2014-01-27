@@ -81,7 +81,7 @@ public class Constants {
     isSet
     Returns true if the given constant name is loaded.
     */
-    public boolean isSet(String name) {
+    public static boolean isSet(String name) {
         return vars.containsKey(name);
     }
     
@@ -89,7 +89,7 @@ public class Constants {
     get
     Returns the given constant's value as a double.
     */
-    public double get(String name) {
+    public static double get(String name) {
         Double value = (Double)vars.get(name);
         return value.doubleValue();
     }
@@ -98,7 +98,7 @@ public class Constants {
     getInt
     Returns the given constant's value as an integer.
     */
-    public double getInt(String name) {
+    public static double getInt(String name) {
         Double value = (Double)vars.get(name);
         return (int)value.doubleValue();
     }
