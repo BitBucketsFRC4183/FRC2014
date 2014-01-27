@@ -23,4 +23,5 @@ public class RandomConstants {
     public static final double WINCH_SPEED = 1.0;
     
     public static final double M_PER_S_TO_PERCENT = 1;
+
 }
