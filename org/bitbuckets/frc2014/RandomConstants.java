@@ -22,6 +22,13 @@ public class RandomConstants {
     //Catapult
     public static final double WINCH_SPEED = 1.0;
     
-    public static final double M_PER_S_TO_PERCENT = 1;
+    public static final int TICKS_PER_INCH = 1;
+    public static final double INCH_PID_KP = 0.3;
+    public static final double INCH_PID_KI = 0.3;
+    public static final double INCH_PID_KD = 0.3;
+    public static final double INCH_PID_KF = 0.3;
+    public static final double INCH_PID_TOL = .1;
+    
+    public static final int TICKS_PER_ROTATION = 1000;
     
 }
