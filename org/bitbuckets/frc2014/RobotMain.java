@@ -30,7 +30,6 @@ public class RobotMain extends IterativeRobot {
      */
     private Compressor compressor = new Compressor(RobotMap.PRESSURE_SWITCH, RobotMap.COMPRESSOR_RELAY);
     private Command autonomousCommand;
-    private Victor winch;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -39,8 +38,6 @@ public class RobotMain extends IterativeRobot {
     public void robotInit() {
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
-        
-        winch = new Victor(4);
         
         // Initialize all subsystems
         CommandBase.init();
@@ -95,8 +92,8 @@ public class RobotMain extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        CommandBase.dt.drive(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX), CommandBase.oi.stick.getAxis(Joystick.AxisType.kY));
-        //winch.set(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX));
+        CommandBase.dt.drive(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX), 
+                CommandBase.oi.stick.getAxis(Joystick.AxisType.kY));
     }
     
     /**
