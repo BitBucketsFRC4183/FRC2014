@@ -54,6 +54,7 @@ public class RobotMain extends IterativeRobot {
         CommandBase.oi.intakeDeployButton.whenReleased(new RetractIntake());
         CommandBase.oi.intakeButton.whenPressed(new IntakeBall());
         CommandBase.oi.intakeButton.whenReleased(new IntakeBallOff());
+        CommandBase.oi.lightsOnOffButton.whenPressed(new SimpleLights());
     }
 
     /**
@@ -80,7 +81,7 @@ public class RobotMain extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or commen tit out.
         
-        System.out.print("I LIKE PI");
+        System.out.print("Teleop Started");
         
         compressor.start();
         

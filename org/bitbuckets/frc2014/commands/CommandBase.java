@@ -6,6 +6,7 @@ import org.bitbuckets.frc2014.OI;
 import org.bitbuckets.frc2014.subsystems.Catapault;
 import org.bitbuckets.frc2014.subsystems.DriveTrain;
 import org.bitbuckets.frc2014.subsystems.Intake;
+import org.bitbuckets.frc2014.subsystems.Lights;
 import org.bitbuckets.frc2014.subsystems.ExampleSubsystem;
 
 /**
@@ -20,6 +21,7 @@ public abstract class CommandBase extends Command {
     public static DriveTrain dt;
     protected static Intake in;
     protected static Catapault cp;
+    public static Lights li;
     // Create a single static instance of all of your subsystems
     public static ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 
@@ -33,6 +35,7 @@ public abstract class CommandBase extends Command {
         dt = new DriveTrain();
         in = new Intake();
         cp = new Catapault();
+        li = new Lights();
 
         // Show what command your subsystem is running on the SmartDashboard
         SmartDashboard.putData(exampleSubsystem);
