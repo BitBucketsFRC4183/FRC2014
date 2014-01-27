@@ -24,4 +24,6 @@ public class RandomConstants {
     
     public static final double M_PER_S_TO_PERCENT = 1;
     
+    //Useful stuff
+    public static final double CANTSTOPTHIS = 0.0;
 }
