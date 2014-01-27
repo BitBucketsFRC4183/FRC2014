@@ -26,4 +26,5 @@ public class RandomConstants {
     
     //Useful stuff
     public static final double CANTSTOPTHIS = 0.0;
+    public static final double OHYESICAN = 1000000.0;
 }
