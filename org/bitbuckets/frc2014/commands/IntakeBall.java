@@ -10,13 +10,13 @@ public class IntakeBall extends CommandBase {
     public IntakeBall() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(in);
+        requires(intake);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        in.setDeployed(true);//Makes the intake go down.
-        in.setIntakeRoller(-1);//Makes intake pull stuff.
+        intake.setDeployed(true);//Makes the intake go down.
+        intake.setIntakeRoller(-1);//Makes intake pull stuff.
     }
 
     // Called repeatedly when this Command is scheduled to run

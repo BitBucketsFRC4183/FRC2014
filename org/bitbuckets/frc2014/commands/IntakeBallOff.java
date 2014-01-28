@@ -10,13 +10,13 @@ public class IntakeBallOff extends CommandBase {
     public IntakeBallOff() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(in);
+        requires(intake);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        in.setDeployed(false);//Brings in the intake.
-        in.setIntakeRoller(0);//Stops the roller.
+        intake.setDeployed(false);//Brings intake the intake.
+        intake.setIntakeRoller(0);//Stops the roller.
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -5,26 +5,21 @@ import org.bitbuckets.frc2014.subsystems.Lights;
 
 /**
  * Made by Nathan
- * same info as Lights subsystem applys here**
+ same intakefo as Lights subsystem applys here**
  */
 public class SimpleLights extends CommandBase {
 
     public SimpleLights() {
-        requires(li);
+        requires(lights);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        /**
-        * checks if lights are on
-        * if on turns them off
-        * if off turns them on
-        */
-        if(li.isOn()) {//checks if lights are on
-            li.changeLights(false); //turn lights off
-        } else { //if not
-            li.changeLights(true);//turn lights on
-}
+        if(lights.isOn()){
+            lights.set(false);
+        }else{
+            lights.set(true);
+        }
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -33,7 +28,7 @@ public class SimpleLights extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

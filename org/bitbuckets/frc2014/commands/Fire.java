@@ -10,12 +10,12 @@ public class Fire extends CommandBase {
     public Fire() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(cp);
+        requires(catapult);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        cp.setCatapaultFired(true);//Makes the catapault go up
+        catapult.setCatapaultFired(true);//Makes the catapult go up
     }
 
     // Called repeatedly when this Command is scheduled to run
