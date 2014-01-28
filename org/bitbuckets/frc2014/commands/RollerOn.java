@@ -10,12 +10,12 @@ public class RollerOn extends CommandBase {
     public RollerOn() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(in);
+        requires(intake);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        in.setIntakeRoller(-1);//Makes the roller go in.
+        intake.setIntakeRoller(-1);//Makes the roller go intake.
     }
 
     // Called repeatedly when this Command is scheduled to run

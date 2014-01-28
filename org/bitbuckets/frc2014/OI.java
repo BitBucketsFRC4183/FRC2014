@@ -43,6 +43,11 @@ public class OI {
      * The button that makes the intake roller roll in.
      */
     public Button intakeRollerButton = new JoystickButton(stick, 12);
+     /**
+     * The button that starts and stops the lights
+     */
+    //public Button lightsOnOffButton = new JoystickButton(stick, //needs to be bound to button//;
+   
     
     
     // Another type of button you can create is a DigitalIOButton, which is

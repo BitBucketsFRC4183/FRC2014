@@ -30,5 +30,4 @@ public class RandomConstants {
     public static final double INCH_PID_TOL = .1;
     
     public static final int TICKS_PER_ROTATION = 1000;
-    
 }

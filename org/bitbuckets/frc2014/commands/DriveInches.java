@@ -16,7 +16,7 @@ public class DriveInches extends CommandBase {
     
     public DriveInches(double inches) {
         // Use requires() here to declare subsystem dependencies
-        requires(dt);
+        //requires(dt);
         ticks = inches*RandomConstants.TICKS_PER_INCH;
 //        pidControlR = new PIDController(RandomConstants.INCH_PID_KP, RandomConstants.INCH_PID_KI, RandomConstants.INCH_PID_KD, RandomConstants.INCH_PID_KF, dt.encR, );
 //        pidControlL = new PIDController(RandomConstants.INCH_PID_KP, RandomConstants.INCH_PID_KI, RandomConstants.INCH_PID_KD, RandomConstants.INCH_PID_KF, dt.encL, );

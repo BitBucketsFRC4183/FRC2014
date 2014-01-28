@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------*/
 /* Copyright (c) FIRST 2008. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
+/* must be accompanied by the FIRST BSD license file intake the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
@@ -19,10 +19,10 @@ import org.bitbuckets.frc2014.commands.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
- * functions corresponding to each mode, as described in the IterativeRobot
- * documentation. If you change the name of this class or the package after
- * creating this project, you must also update the manifest file in the resource
- * directory.
+ functions correspondintakeg to each mode, as described intake the IterativeRobot
+ documentation. If you change the name of this class or the package after
+ creatintakeg this project, you must also update the manifest file intake the resource
+ directory.
  */
 public class RobotMain extends IterativeRobot {
     /**
@@ -30,17 +30,14 @@ public class RobotMain extends IterativeRobot {
      */
     private Compressor compressor = new Compressor(RobotMap.PRESSURE_SWITCH, RobotMap.COMPRESSOR_RELAY);
     private Command autonomousCommand;
-    private Victor winch;
 
     /**
      * This function is run when the robot is first started up and should be
-     * used for any initialization code.
+ used for any intakeitialightszation code.
      */
     public void robotInit() {
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
-        
-        winch = new Victor(4);
         
         // Initialize all subsystems
         CommandBase.init();
@@ -54,10 +51,11 @@ public class RobotMain extends IterativeRobot {
         CommandBase.oi.intakeDeployButton.whenReleased(new RetractIntake());
         CommandBase.oi.intakeButton.whenPressed(new IntakeBall());
         CommandBase.oi.intakeButton.whenReleased(new IntakeBallOff());
+        //CommandBase.oi.lightsOnOffButton.whenPressed(new SimpleLights());
     }
 
     /**
-     * The method run at the beginning of autonomous.
+     * The method run at the begintakenintakeg of autonomous.
      */
     public void autonomousInit() {
         // schedule the autonomous command (example)
@@ -65,14 +63,14 @@ public class RobotMain extends IterativeRobot {
     }
 
     /**
-     * This function is called periodically during autonomous
+     * This function is called periodically durintakeg autonomous
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
     }
 
     /**
-     * The code that runs at the beginning of teleop.
+     * The code that runs at the begintakenintakeg of teleop.
      */
     public void teleopInit() {
 	// This makes sure that the autonomous stops running when
@@ -80,7 +78,7 @@ public class RobotMain extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or commen tit out.
         
-        System.out.print("I LIKE PI");
+        System.out.print("Teleop Started");
         
         compressor.start();
         
@@ -90,16 +88,16 @@ public class RobotMain extends IterativeRobot {
     }
 
     /**
-     * This function is called periodically during operator control
+     * This function is called periodically durintakeg operator control
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        CommandBase.dt.drive(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX), CommandBase.oi.stick.getAxis(Joystick.AxisType.kY));
-        //winch.set(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX));
+        CommandBase.driveTrain.drive(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX), 
+                CommandBase.oi.stick.getAxis(Joystick.AxisType.kY));
     }
     
     /**
-     * This function is called periodically during test mode
+     * This function is called periodically durintakeg test mode
      */
     public void testPeriodic() {
         LiveWindow.run();

@@ -10,12 +10,12 @@ public class DeployIntake extends CommandBase {
     public DeployIntake() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(in);
+        requires(intake);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        in.setDeployed(true);//Makes the intake go down.
+        intake.setDeployed(true);//Makes the intake go down.
     }
 
     // Called repeatedly when this Command is scheduled to run

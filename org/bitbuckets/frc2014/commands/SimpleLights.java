@@ -1,22 +1,25 @@
 
 package org.bitbuckets.frc2014.commands;
 
-/**
- *
- * @author bradmiller
- */
-public class OuttakeBall extends CommandBase {
+import org.bitbuckets.frc2014.subsystems.Lights;
 
-    public OuttakeBall() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        requires(intake);
+/**
+ * Made by Nathan
+ same intakefo as Lights subsystem applys here**
+ */
+public class SimpleLights extends CommandBase {
+
+    public SimpleLights() {
+        requires(lights);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        //in.setDeployed(true);//Makes the intake go out.
-        intake.setIntakeRoller(1);//Makes the roller go backwards.
+        if(lights.isOn()){
+            lights.set(false);
+        }else{
+            lights.set(true);
+        }
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -25,7 +28,7 @@ public class OuttakeBall extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;//Stops the command from running indefinately.
+        return true;
     }
 
     // Called once after isFinished returns true
