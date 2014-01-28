@@ -12,7 +12,7 @@ public class DriveTeleop extends CommandBase {
     public DriveTeleop() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(dt);
+        requires(driveTrain);
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +21,7 @@ public class DriveTeleop extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        dt.drive(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX), CommandBase.oi.stick.getAxis(Joystick.AxisType.kY));//our axis are reversed
+        driveTrain.drive(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX), CommandBase.oi.stick.getAxis(Joystick.AxisType.kY));//our axis are reversed
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -11,17 +11,17 @@ import org.bitbuckets.frc2014.subsystems.ExampleSubsystem;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
- * CommandBase stores creates and stores each control system. To access a
- * subsystem elsewhere in your code in your code use CommandBase.exampleSubsystem
+ CommandBase stores creates and stores each control system. To access a
+ subsystem elsewhere intake your code intake your code use CommandBase.exampleSubsystem
  * @author Author
  */
 public abstract class CommandBase extends Command {
 
     public static OI oi;
-    public static DriveTrain dt;
-    protected static Intake in;
-    protected static Catapault cp;
-    public static Lights li;
+    public static DriveTrain driveTrain;
+    protected static Intake intake;
+    protected static Catapault catapult;
+    public static Lights lights;
     // Create a single static instance of all of your subsystems
     public static ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 
@@ -32,10 +32,10 @@ public abstract class CommandBase extends Command {
         // yet. Thus, their requires() statements may grab null pointers. Bad
         // news. Don't move it.
         oi = new OI();
-        dt = new DriveTrain();
-        in = new Intake();
-        cp = new Catapault();
-        li = new Lights();
+        driveTrain = new DriveTrain();
+        intake = new Intake();
+        catapult = new Catapault();
+        lights = new Lights();
 
         // Show what command your subsystem is running on the SmartDashboard
         SmartDashboard.putData(exampleSubsystem);

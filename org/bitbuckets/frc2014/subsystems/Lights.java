@@ -12,12 +12,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * also this is my first class when it comes to FRC
  */
 public class Lights extends Subsystem {
-    private Relay light1;
-    private boolean lightOn;
+    private Relay light;
     
     public Lights(){
         super();
-        light1 = new Relay(2);
+        light = new Relay(RobotMap.LIGHT_RELAY);
     }
 
     public void initDefaultCommand() {
@@ -25,25 +24,24 @@ public class Lights extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void changeLights(boolean lightOn){
-        boolean isOnVar = lightOn;
-        
-        /**
-         * if set to true turns lights on
-         * if set to false turns lights off
-        */
-        if (lightOn){
-            light1.set(Relay.Value.kOn);
-        } else {
-            light1.set(Relay.Value.kOff);
+    /**
+     * 
+     * @param lightOn 
+     */
+    public void set(boolean lightOn){
+        if(lightOn){
+            light.set(Relay.Value.kOn);
+        }else{
+            light.set(Relay.Value.kOff);
         }
     }
+    
+    /**
+     * 
+     * @return If the light is on.
+     */
     public boolean isOn() {
-        return lightOn;
-        /**
-         * if its true lights on
-         * if false lights off
-        */ 
+        return light.get() == Relay.Value.kOn;
     }
 }
 

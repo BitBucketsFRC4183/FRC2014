@@ -10,12 +10,12 @@ public class RetractIntake extends CommandBase {
     public RetractIntake() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(in);
+        requires(intake);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        in.setDeployed(false);//Brings in the intake.
+        intake.setDeployed(false);//Brings intake the intake.
     }
 
     // Called repeatedly when this Command is scheduled to run
