@@ -19,9 +19,9 @@ import org.bitbuckets.frc2014.commands.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
- functions correspondintakeg to each mode, as described intake the IterativeRobot
+ functions corresponding to each mode, as described intake the IterativeRobot
  documentation. If you change the name of this class or the package after
- creatintakeg this project, you must also update the manifest file intake the resource
+ creating this project, you must also update the manifest file intake the resource
  directory.
  */
 public class RobotMain extends IterativeRobot {
@@ -33,7 +33,7 @@ public class RobotMain extends IterativeRobot {
 
     /**
      * This function is run when the robot is first started up and should be
- used for any intakeitialightszation code.
+ used for any intake initialization code.
      */
     public void robotInit() {
         // instantiate the command used for the autonomous period
@@ -55,7 +55,7 @@ public class RobotMain extends IterativeRobot {
     }
 
     /**
-     * The method run at the begintakenintakeg of autonomous.
+     * The method run at the beginning of autonomous.
      */
     public void autonomousInit() {
         // schedule the autonomous command (example)
@@ -63,14 +63,14 @@ public class RobotMain extends IterativeRobot {
     }
 
     /**
-     * This function is called periodically durintakeg autonomous
+     * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
     }
 
     /**
-     * The code that runs at the begintakenintakeg of teleop.
+     * The code that runs at the beginning of teleop.
      */
     public void teleopInit() {
 	// This makes sure that the autonomous stops running when
@@ -88,7 +88,7 @@ public class RobotMain extends IterativeRobot {
     }
 
     /**
-     * This function is called periodically durintakeg operator control
+     * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
@@ -97,7 +97,7 @@ public class RobotMain extends IterativeRobot {
     }
     
     /**
-     * This function is called periodically durintakeg test mode
+     * This function is called periodically during test mode
      */
     public void testPeriodic() {
         LiveWindow.run();
