@@ -1,0 +1,42 @@
+File header comment:
+
+/*
+ * FRC 4183 - The Bit Buckets
+ * Tucson, AZ
+ *
+ * FRC 2014 Codebase
+ * <filename>
+ */
+
+
+
+Class comment:
+/**
+ * <classname>
+ * @author    <First name> <Last name>
+ * 
+ * <description>
+ */
+
+
+
+Method comment:
+/**
+ * <methodname>
+ * <description>
+ * @param     <paramname>    <description of first parameter>
+ * @param     <paramname>    <description of second parameter>
+ * ...
+ * @return                   <description of return value>
+ */
+
+
+
+Data member comment (one line):
+/** <variablename> - <description> **/
+
+Data member comment (multi-line):
+/**
+ * <variablename>
+ * <description>
+ */
