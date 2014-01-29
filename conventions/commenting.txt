@@ -13,7 +13,7 @@ File header comment:
 Class comment:
 /**
  * <classname>
- * @author: <First name> <Last name>
+ * @author    <First name> <Last name>
  * 
  * <description>
  */
@@ -24,10 +24,10 @@ Method comment:
 /**
  * <methodname>
  * <description>
- * @param:	<description of first parameter>
- * @param:	<description of second parameter>
+ * @param     <paramname>    <description of first parameter>
+ * @param     <paramname>    <description of second parameter>
  * ...
- * @return:	<description of return value>
+ * @return                   <description of return value>
  */
 
 
