@@ -16,7 +16,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * Collection of actuators and interfaces for the lights subsystem.
  */
 public class Lights extends Subsystem {
-    private Relay light;    // lights powered by relay for now
+    /** Lights are powered by a relay for now */
+    private Relay light;
     
     /**
      * Lights constructor, sets up relay module.
@@ -46,7 +47,7 @@ public class Lights extends Subsystem {
      * @return   true if lights are on, false otherwise
      */
     public boolean isOn() {
-        return light.get() == Relay.Value.kOn;
+        return (light.get() == Relay.Value.kOn);
     }
 }
 

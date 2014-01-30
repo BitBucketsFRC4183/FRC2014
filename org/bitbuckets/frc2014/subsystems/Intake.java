@@ -3,6 +3,7 @@
  *
  * FRC 2014 Codebase
  */
+
 package org.bitbuckets.frc2014.subsystems;
 
 import edu.wpi.first.wpilibj.Victor;
@@ -16,15 +17,17 @@ import org.bitbuckets.frc2014.RobotMap;
  * Collection of actuators and sensors that form the intake subsystem.
  */
 public class Intake extends Subsystem {
-    private Victor roller;              // top ABS intake roller driven by RS550
-    private DoubleSolenoid deployer;    // two cyliners to raise/lower intake arm
+    /** Top ABS intake roller driven by RS550 on a Victor */
+    private Victor roller;
+    /** Two double-acting cylinders to raise/lower the intake arm */
+    private DoubleSolenoid deployer;
     
     /**
      * Intake constructor, sets up intake rollers and arm solenoids.
      */
     public Intake() {
         super();
-        roller  = new Victor(RobotMap.ROLLER_MOTOR);
+        roller = new Victor(RobotMap.ROLLER_MOTOR);
         deployer = new DoubleSolenoid(RobotMap.INTAKE_SOLENOID_1, 
                 RobotMap.INTAKE_SOLENOID_2);
     }

@@ -19,8 +19,10 @@ import org.bitbuckets.frc2014.RobotMap;
  * Collection of actuators and sensors that form the catapult subsystem.
  */
 public class Catapault extends Subsystem {
-    private Victor winch;           // MiniCIM ball-shifter driven winch
-    private DoubleSolenoid shifter; // pneumatic shifter
+    /** Ball-shifter winch powered by two MiniCIMs on Victors */
+    private Victor winch;
+    /** Double-acting cylinder to shift between low-gear and neutral */
+    private DoubleSolenoid shifter;
     
     /** digital switch that is closed (false) when the winch is armed **/
     public DigitalInput retracted;
@@ -48,9 +50,9 @@ public class Catapault extends Subsystem {
      * @param     fired    fires catapult when true, engages motor otherwise
      */
     public void setCatapaultFired(boolean fired){
-        if(fired){
+        if(fired) {
             shifter.set(DoubleSolenoid.Value.kForward);
-        }else{
+        } else {
             shifter.set(DoubleSolenoid.Value.kReverse);
         }
         System.out.println("\t" + retracted.get() + "\t");
@@ -61,9 +63,9 @@ public class Catapault extends Subsystem {
      * @param     moving    enables winch motor when true, disables when false
      */
     public void setCatapaultRetracted(boolean moving){
-        if(moving){
+        if(moving) {
             winch.set(RandomConstants.WINCH_SPEED);
-        }else{
+        } else {
             winch.set(0);
         }
     }
