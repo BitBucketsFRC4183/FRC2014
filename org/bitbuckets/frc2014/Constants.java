@@ -3,7 +3,6 @@
  * Tucson, AZ
  *
  * FRC 2014 Codebase
- * Constants.java
  */
 
 package org.bitbuckets.frc2014;
@@ -16,7 +15,6 @@ import java.io.DataInputStream;
 
 
 /**
- * Constants
  * @author  Kevin Forbes
  * 
  * Access and update constants on-the-fly in an external CSV file. Format the 
@@ -34,14 +32,12 @@ import java.io.DataInputStream;
  */
 public class Constants {
     /** 
-     * vars
      * Mapping of constant names as Strings to values as Doubles. 
      * Using obsolete data structure due to Squawk limitations.
      */
     private static Hashtable vars = new Hashtable();
     
     /**
-    * Constants
     * Empty private constructor for static class.
     */
     private Constants() {
@@ -49,7 +45,6 @@ public class Constants {
     }
     
     /**
-    * parseCSV
     * Reads a comma-separated values file and stores each line as a new constant.
     * Because a hash table is used, values are overwritten if parseCSV is called
     * more than once, allowing on-the-fly adjusting of constants.
@@ -96,7 +91,6 @@ public class Constants {
     }
     
     /**
-     * isSet
      * Determines if the given name is present in the constants table.
      * @param   name    constant name to look up
      * @return          true if found, false otherwise
@@ -106,7 +100,6 @@ public class Constants {
     }
     
     /**
-     * get
      * Retrieves the stored value of the given constant name as a double
      * @param   name    constant name to look up
      * @return          value of constant as a double
@@ -117,7 +110,6 @@ public class Constants {
     }
     
     /**
-     * getInt
      * Retrieves the stored value of the given constant name as an integer
      * @param   name    constant name to look up
      * @return          value of constant as an integer
