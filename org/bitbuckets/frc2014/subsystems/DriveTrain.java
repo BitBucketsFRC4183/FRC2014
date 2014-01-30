@@ -17,9 +17,12 @@ import org.bitbuckets.frc2014.RobotMap;
  * Collection of actuators and sensors that form the drive train subsystem.
  */
 public class DriveTrain extends Subsystem {
-    public RobotDrive drive;    // base driving system from wpilibj
-    double throttle = 1;        // forward power, -1 to 1
-    double rotation = 1;        // rotational power, -1 to 1
+    /** Base driving system standard in wpilibj */
+    public RobotDrive drive;
+    /** Forward/backward power ranging from -1 (bwd) to 1 (fwd) */
+    double throttle = 1;
+    /** Rotational power ranging from -1 (ccw) to 1 (cw) */
+    double rotation = 1;
     
     /**
      * Drivetrain constructor, sets up basic robot drive.
@@ -91,12 +94,13 @@ public class DriveTrain extends Subsystem {
      */
     public double accelerationLimiter(double oldValue, 
             double requestedValue, double maxChange) {
-        if(requestedValue - oldValue > maxChange)
+        if(requestedValue - oldValue > maxChange) {
             return oldValue + maxChange;
-        else if(oldValue - requestedValue > maxChange)
+        } else if(oldValue - requestedValue > maxChange) {
             return oldValue - maxChange;
-        else
+        } else {
             return requestedValue;
+        }
     }
 }
 
