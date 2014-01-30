@@ -1,6 +1,7 @@
 
 package org.bitbuckets.frc2014.subsystems;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.bitbuckets.frc2014.RandomConstants;
@@ -12,13 +13,17 @@ import org.bitbuckets.frc2014.RobotMap;
 public class DriveTrain extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    public RobotDrive drive;
-    double throttle = 1;
-    double rotation = 1;
+    private RobotDrive drive;
+    private double throttle = 1;
+    private double rotation = 1;
+    public Encoder encR;
+    public Encoder encL;
     
     public DriveTrain() {
         super();
         drive  = new RobotDrive(RobotMap.R_MOTOR, RobotMap.L_MOTOR);
+        encR = new Encoder(RobotMap.R_ENCODER_A, RobotMap.R_ENCODER_B);
+        encL = new Encoder(RobotMap.L_ENCODER_A, RobotMap.L_ENCODER_B);
     }
     
     public void initDefaultCommand() {

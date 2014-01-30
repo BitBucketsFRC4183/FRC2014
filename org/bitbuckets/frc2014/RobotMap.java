@@ -21,7 +21,7 @@ public class RobotMap {
      */
     public static final int L_MOTOR = 2;
     /**
-     * The left motor for the roller intake
+     * The intake roller motor.
      */
     public static final int ROLLER_MOTOR = 3;
     /**
@@ -71,6 +71,22 @@ public class RobotMap {
      * The limit switch that says when the catapult is all the way back.
      */
     public static final int CATAPAULT_LIMIT_SWITCH = 1;
+    /**
+     * The right encoder for the drivetrain.
+     */
+    public static final int R_ENCODER_A = 2;
+    /**
+     * The right encoder for the drivetrain.
+     */
+    public static final int R_ENCODER_B = 2;
+    /**
+     * The left encoder for the drivetrain.
+     */
+    public static final int L_ENCODER_A = 4;
+    /**
+     * The left encoder for the drivetrain.
+     */
+    public static final int L_ENCODER_B = 4;
     /**
      * The switch that tells the compressor the max pressure
      */
