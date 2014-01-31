@@ -1,3 +1,8 @@
+/* FRC 4183 - The Bit Buckets
+ * Tucson, AZ
+ *
+ * FRC 2014 Codebase
+ */
 
 package org.bitbuckets.frc2014.commands;
 
@@ -6,10 +11,10 @@ import java.util.Calendar;
 import java.util.TimeZone;
 
 /**
- *
- * @author bradmiller
+ * @author    Cal Miller cal@bpmpc.net
+ * 
+ * <description>
  */
-
 public class DriveMotorPercent extends CommandBase {
     
     private int time;

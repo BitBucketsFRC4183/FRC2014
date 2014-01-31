@@ -1,11 +1,24 @@
+/* FRC 4183 - The Bit Buckets
+ * Tucson, AZ
+ *
+ * FRC 2014 Codebase
+ */
 
 package org.bitbuckets.frc2014.commands;
 
 /**
- *
- * @author bradmiller
+ * @author    James Wyeth james.wyeth@gmail.com
+ * 
+ * Deploys intake
  */
 public class DeployIntake extends CommandBase {
+    /**
+    * <description>
+    * @param     <paramname>    <description of first parameter>
+    * @param     <paramname>    <description of second parameter>
+    * ...
+    * @return    
+     */
 
     public DeployIntake() {
         // Use requires() here to declare subsystem dependencies

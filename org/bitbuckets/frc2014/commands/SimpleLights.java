@@ -1,11 +1,17 @@
+/* FRC 4183 - The Bit Buckets
+ * Tucson, AZ
+ *
+ * FRC 2014 Codebase
+ */
 
 package org.bitbuckets.frc2014.commands;
 
 import org.bitbuckets.frc2014.subsystems.Lights;
 
 /**
- * Made by Nathan
- same intakefo as Lights subsystem applys here**
+ * @author    Nathan Rix nathan@tucsonconnect.org
+ * 
+ * If button pressed turns on lights if same button pressed again turns off
  */
 public class SimpleLights extends CommandBase {
 
@@ -13,7 +19,6 @@ public class SimpleLights extends CommandBase {
         requires(lights);
     }
 
-    // Called just before this Command runs the first time
     protected void initialize() {
         if(lights.isOn()){
             lights.set(false);
