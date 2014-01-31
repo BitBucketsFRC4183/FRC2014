@@ -2,8 +2,6 @@
 package org.bitbuckets.frc2014.commands;
 
 import edu.wpi.first.wpilibj.SpeedController;
-import java.util.Calendar;
-import java.util.TimeZone;
 import org.bitbuckets.frc2014.RandomConstants;
 
 /**
@@ -28,7 +26,7 @@ public class DriveMotorMPerS extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        initTime = Calendar.getInstance(TimeZone.getDefault()).getTime().getTime();
+        initTime = System.currentTimeMillis();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -38,7 +36,7 @@ public class DriveMotorMPerS extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Calendar.getInstance(TimeZone.getDefault()).getTime().getTime() - initTime >= time? true: false;
+        return System.currentTimeMillis() - initTime >= time;
     }
 
     // Called once after isFinished returns true
