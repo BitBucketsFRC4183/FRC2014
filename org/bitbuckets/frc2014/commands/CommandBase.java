@@ -7,7 +7,6 @@ import org.bitbuckets.frc2014.subsystems.Catapault;
 import org.bitbuckets.frc2014.subsystems.DriveTrain;
 import org.bitbuckets.frc2014.subsystems.Intake;
 import org.bitbuckets.frc2014.subsystems.Lights;
-import org.bitbuckets.frc2014.subsystems.ExampleSubsystem;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -22,8 +21,6 @@ public abstract class CommandBase extends Command {
     protected static Intake intake;
     protected static Catapault catapult;
     public static Lights lights;
-    // Create a single static instance of all of your subsystems
-    public static ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -36,9 +33,6 @@ public abstract class CommandBase extends Command {
         intake = new Intake();
         catapult = new Catapault();
         lights = new Lights();
-
-        // Show what command your subsystem is running on the SmartDashboard
-        SmartDashboard.putData(exampleSubsystem);
     }
 
     public CommandBase(String name) {
