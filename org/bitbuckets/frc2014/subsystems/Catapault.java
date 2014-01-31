@@ -1,3 +1,8 @@
+/* FRC 4183 - The Bit Buckets
+ * Tucson, AZ
+ *
+ * FRC 2014 Codebase
+ */
 
 package org.bitbuckets.frc2014.subsystems;
 
@@ -9,66 +14,58 @@ import org.bitbuckets.frc2014.RandomConstants;
 import org.bitbuckets.frc2014.RobotMap;
 
 /**
- *
+ * @author    
+ * 
+ * Collection of actuators and sensors that form the catapult subsystem.
  */
 public class Catapault extends Subsystem {
-    ////-----------------------Pneumatic-----------------------////
-//    private DoubleSolenoid shootLeft;
-//    private DoubleSolenoid shootRight;
-//    
-//    public Catapault(){
-//        super();
-//        shootLeft = new DoubleSolenoid(RobotMap.CATAPAULT_FIRE_SOLENOID_L, RobotMap.CATAPAULT_RETRACT_SOLENOID_L);
-//        shootRight = new DoubleSolenoid(RobotMap.CATAPAULT_FIRE_SOLENOID_R, RobotMap.CATAPAULT_RETRACT_SOLENOID_R);
-//    }
-//    
-//    public void initDefaultCommand() {
-//        // Set the default command for a subsystem here.
-//        //setDefaultCommand(new MySpecialCommand());
-//    }
-//    
-//    public void setCatapaultFired(boolean fired){
-//        if(fired){
-//            shootLeft.set(DoubleSolenoid.Value.kForward);
-//            shootRight.set(DoubleSolenoid.Value.kForward);
-//        }else{
-//            shootLeft.set(DoubleSolenoid.Value.kReverse);
-//            shootRight.set(DoubleSolenoid.Value.kReverse);
-//        }
-//    }
-    
-    ////-----------------------Spring and winch-----------------------////
-    
+    /** Ball-shifter winch powered by two MiniCIMs on Victors */
     private Victor winch;
+    /** Double-acting cylinder to shift between low-gear and neutral */
     private DoubleSolenoid shifter;
     
+    /** digital switch that is closed (false) when the winch is armed **/
     public DigitalInput retracted;
     
+    /**
+     * Catapult constructor, sets up actuators and sensors.
+     */
     public Catapault(){
         super();
-        winch = new Victor(5);
+        winch = new Victor(RobotMap.WINCH_MOTOR);
         shifter = new DoubleSolenoid(RobotMap.WINCH_SHIFTER_1, RobotMap.WINCH_SHIFTER_2);
         retracted = new DigitalInput(RobotMap.CATAPAULT_LIMIT_SWITCH);
     }
     
+    /**
+     * Default command to run when subsystems are all initialized.
+     */
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        
     }
     
+    /**
+     * Sets the state of the pneumatic shifting solenoid to shift the ball
+     * shifter into neutral position to fire or low-gear for winching.
+     * @param     fired    fires catapult when true, engages motor otherwise
+     */
     public void setCatapaultFired(boolean fired){
-        if(fired){
+        if(fired) {
             shifter.set(DoubleSolenoid.Value.kForward);
-        }else{
+        } else {
             shifter.set(DoubleSolenoid.Value.kReverse);
         }
         System.out.println("\t" + retracted.get() + "\t");
     }
-    
+
+    /**
+     * Winches back the catapult by driving the ball-shifter motor(s).
+     * @param     moving    enables winch motor when true, disables when false
+     */
     public void setCatapaultRetracted(boolean moving){
-        if(moving){
+        if(moving) {
             winch.set(RandomConstants.WINCH_SPEED);
-        }else{
+        } else {
             winch.set(0);
         }
     }
