@@ -1,5 +1,4 @@
 File header comment:
-
 /* FRC 4183 - The Bit Buckets
  * Tucson, AZ
  *
@@ -10,16 +9,17 @@ File header comment:
 
 Class comment:
 /**
- * @author    <First name> <Last name> <email>
- * 
  * <description>
+ *
+ * @author    <First name> <Last name> <email>
  */
-
+ 
 
 
 Method comment:
 /**
  * <description>
+ *
  * @param     <paramname>    <description of first parameter>
  * @param     <paramname>    <description of second parameter>
  * ...
