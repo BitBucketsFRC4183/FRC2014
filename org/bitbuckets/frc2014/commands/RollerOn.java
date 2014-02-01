@@ -7,14 +7,8 @@
 package org.bitbuckets.frc2014.commands;
 
 /**
- * @author    <First name> <Last name> <email>
- * 
- * <description>
- */
-
-/**
  *
- * @author bradmiller
+ * @author Default
  */
 public class RollerOn extends CommandBase {
 
@@ -24,26 +18,38 @@ public class RollerOn extends CommandBase {
         requires(intake);
     }
 
-    // Called just before this Command runs the first time
+    /**
+     * Called just before this Command runs the first time.
+     */
     protected void initialize() {
         intake.setIntakeRoller(-1);//Makes the roller go intake.
     }
 
-    // Called repeatedly when this Command is scheduled to run
+    /**
+     * Called repeatedly when this Command is scheduled to run.
+     */
     protected void execute() {
     }
 
-    // Make this return true when this Command no longer needs to run execute()
+    /**
+     * Make this return true when this Command no longer needs to run execute().
+     * 
+     * @return Always returns true.
+     */
     protected boolean isFinished() {
         return true;
     }
 
-    // Called once after isFinished returns true
+    /**
+     * Called once after isFinished returns true.
+     */
     protected void end() {
     }
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
+    /**
+     * Called when another command which requires one or more of the same
+       subsystems is scheduled to run.
+     */
     protected void interrupted() {
     }
 }
