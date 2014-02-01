@@ -12,6 +12,9 @@ package org.bitbuckets.frc2014.commands;
  */
 public class RollerOn extends CommandBase {
 
+    /**
+     * Creates a new RollerOn command.
+     */
     public RollerOn() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
