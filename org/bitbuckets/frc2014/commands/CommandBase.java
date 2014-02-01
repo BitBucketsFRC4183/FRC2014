@@ -1,3 +1,9 @@
+/* FRC 4183 - The Bit Buckets
+ * Tucson, AZ
+ *
+ * FRC 2014 Codebase
+ */
+
 package org.bitbuckets.frc2014.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -12,7 +18,7 @@ import org.bitbuckets.frc2014.subsystems.Lights;
  * The base for all commands. All atomic commands should subclass CommandBase.
  CommandBase stores creates and stores each control system. To access a
  subsystem elsewhere intake your code intake your code use CommandBase.exampleSubsystem
- * @author Author
+ * @author 
  */
 public abstract class CommandBase extends Command {
 
