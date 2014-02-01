@@ -55,7 +55,7 @@ public class RobotMap {
     ///////////////////////////////////////////////////////////////////////////////
     
     /**
-     * 
+     * The relay that's connected to the lights.
      */
     public static final int LIGHT_RELAY = 2;
     /**
@@ -101,9 +101,4 @@ public class RobotMap {
      * The port the joystick is plugged in to
      */
     public static final int JOY_1_PORT = 1;
-    
-    // If you are using multiple modules, make sure to define both the port
-    // number and the module. For example you with a rangefinder:
-    // public static final int rangefinderPort = 1;
-    // public static final int rangefinderModule = 1;
 }
