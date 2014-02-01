@@ -1,4 +1,8 @@
-
+/* FRC 4183 - The Bit Buckets
+ * Tucson, AZ
+ *
+ * FRC 2014 Codebase
+ */
 package org.bitbuckets.frc2014;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -7,8 +11,9 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.bitbuckets.frc2014.commands.*;
 
 /**
- * This class is the glue that binds the controls on the physical operator
- * interface to the commands and command groups that allow control of the robot.
+ * 
+ * 
+ * @author Default
  */
 public class OI {
     /**

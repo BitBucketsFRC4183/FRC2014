@@ -1,10 +1,8 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) FIRST 2008. All Rights Reserved.                             */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file intake the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-
+/* FRC 4183 - The Bit Buckets
+ * Tucson, AZ
+ *
+ * FRC 2014 Codebase
+ */
 package org.bitbuckets.frc2014;
 
 
@@ -17,11 +15,9 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.bitbuckets.frc2014.commands.*;
 
 /**
- * The VM is configured to automatically run this class, and to call the
- functions corresponding to each mode, as described intake the IterativeRobot
- documentation. If you change the name of this class or the package after
- creating this project, you must also update the manifest file intake the resource
- directory.
+ * 
+ * 
+ * @author Default
  */
 public class RobotMain extends IterativeRobot {
     /** The compressor. */

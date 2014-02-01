@@ -1,14 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* FRC 4183 - The Bit Buckets
+ * Tucson, AZ
+ *
+ * FRC 2014 Codebase
  */
-
 package org.bitbuckets.frc2014;
 
 /**
- *
- * @author admin
+ * Random constants used in lots of places.
+ * 
+ * @author James Wyeth james.wyeth@gmail.com
  */
 public class RandomConstants {
     
