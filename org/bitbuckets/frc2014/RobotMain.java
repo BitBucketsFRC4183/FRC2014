@@ -11,7 +11,6 @@ package org.bitbuckets.frc2014;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -25,20 +24,13 @@ import org.bitbuckets.frc2014.commands.*;
  directory.
  */
 public class RobotMain extends IterativeRobot {
-    /**
-     * The compressor.
-     */
+    /** The compressor. */
     private Compressor compressor = new Compressor(RobotMap.PRESSURE_SWITCH, RobotMap.COMPRESSOR_RELAY);
-    private Command autonomousCommand;
 
     /**
-     * This function is run when the robot is first started up and should be
- used for any intake initialization code.
+     * The method that is called when the robot is turned on or code has finished downloading.
      */
     public void robotInit() {
-        // instantiate the command used for the autonomous period
-        autonomousCommand = new ExampleCommand();
-        
         // Initialize all subsystems
         CommandBase.init();
         CommandBase.oi.fireButton.whenPressed(new Fire());
@@ -55,22 +47,20 @@ public class RobotMain extends IterativeRobot {
     }
 
     /**
-     * The method run at the beginning of autonomous.
+     * The method run when autonomous is started.
      */
     public void autonomousInit() {
-        // schedule the autonomous command (example)
-        autonomousCommand.start();
     }
 
     /**
-     * This function is called periodically during autonomous
+     * The method that is called periodically throughout autonomous.
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
     }
 
     /**
-     * The code that runs at the beginning of teleop.
+     * The method run when teleop is started.
      */
     public void teleopInit() {
 	// This makes sure that the autonomous stops running when
@@ -81,14 +71,10 @@ public class RobotMain extends IterativeRobot {
         System.out.print("Teleop Started");
         
         compressor.start();
-        
-        //new DriveTeleop();
-        
-        autonomousCommand.cancel();
     }
 
     /**
-     * This function is called periodically during operator control
+     * The method that is called periodically throughout teleop.
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
@@ -97,7 +83,7 @@ public class RobotMain extends IterativeRobot {
     }
     
     /**
-     * This function is called periodically during test mode
+     * The method that is called periodically throughout test.
      */
     public void testPeriodic() {
         LiveWindow.run();
