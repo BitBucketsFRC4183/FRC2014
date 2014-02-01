@@ -10,9 +10,10 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.bitbuckets.frc2014.RandomConstants;
 import org.bitbuckets.frc2014.RobotMap;
+import java.lang.Math;
 
 /**
- * @author    
+ * @author James Wyeth    
  * 
  * Collection of actuators and sensors that form the drive train subsystem.
  */
@@ -81,7 +82,7 @@ public class DriveTrain extends Subsystem {
      */
     private double skim(double val) {
         return (Math.abs(val) > 1)
-                ? (Math.signum(val) - val) * RandomConstants.SKIM_GAIN
+                ? ((Math.abs(val)>0 ? 1 : -1) - val) * RandomConstants.SKIM_GAIN
                 : 0;
     }
     
