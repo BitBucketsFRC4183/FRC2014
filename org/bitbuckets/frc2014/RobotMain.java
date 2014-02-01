@@ -36,8 +36,6 @@ public class RobotMain extends IterativeRobot {
  used for any intake initialization code.
      */
     public void robotInit() {
-        // instantiate the command used for the autonomous period
-        autonomousCommand = new ExampleCommand();
         
         // Initialize all subsystems
         CommandBase.init();

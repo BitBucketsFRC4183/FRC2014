@@ -6,6 +6,8 @@
 
 package org.bitbuckets.frc2014.commands;
 
+import org.bitbuckets.frc2014.RandomConstants;
+
 /**
  *
  * @author Default
@@ -25,7 +27,7 @@ public class RollerOn extends CommandBase {
      * Called just before this Command runs the first time.
      */
     protected void initialize() {
-        intake.setIntakeRoller(-1);//Makes the roller go intake.
+        intake.setIntakeRoller(RandomConstants.INTAKE_FORWARDS);//Makes the roller go intake.
     }
 
     /**

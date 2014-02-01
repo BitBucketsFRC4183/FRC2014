@@ -43,7 +43,7 @@ public class Intake extends Subsystem {
      * Sets the speed of the intake roller.
      * @param   speed   intake roller speed from -1 (out) to 1 (in)
      */
-    public void setIntakeRoller(int speed){
+    public void setIntakeRoller(double speed){
         roller.set(speed);
     }
     

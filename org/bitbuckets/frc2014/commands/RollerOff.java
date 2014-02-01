@@ -6,6 +6,8 @@
 
 package org.bitbuckets.frc2014.commands;
 
+import org.bitbuckets.frc2014.RandomConstants;
+
 /**
  *
  * @author Deafault
@@ -24,7 +26,7 @@ public class RollerOff extends CommandBase {
      * Called just before this Command runs the first time.
      */
     protected void initialize() {
-        intake.setIntakeRoller(0);//Turns the roller off.
+        intake.setIntakeRoller(RandomConstants.INTAKE_OFF);//Turns the roller off.
     }
 
     /**
