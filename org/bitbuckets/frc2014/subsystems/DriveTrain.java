@@ -10,9 +10,10 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.bitbuckets.frc2014.RandomConstants;
 import org.bitbuckets.frc2014.RobotMap;
+import java.lang.Math;
 
 /**
- * @author    
+ * @author James Wyeth    
  * 
  * Collection of actuators and sensors that form the drive train subsystem.
  */
