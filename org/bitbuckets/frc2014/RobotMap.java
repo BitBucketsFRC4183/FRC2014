@@ -82,7 +82,7 @@ public class RobotMap {
     /**
      * The right encoder for the drivetrain.
      */
-    public static final int R_ENCODER_B = 2;
+    public static final int R_ENCODER_B = 3;
     /**
      * The left encoder for the drivetrain.
      */
@@ -90,7 +90,7 @@ public class RobotMap {
     /**
      * The left encoder for the drivetrain.
      */
-    public static final int L_ENCODER_B = 4;
+    public static final int L_ENCODER_B = 5;
     /**
      * The switch that tells the compressor the max pressure
      */

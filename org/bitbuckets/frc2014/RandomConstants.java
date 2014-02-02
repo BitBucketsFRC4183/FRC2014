@@ -35,8 +35,6 @@ public class RandomConstants {
     public static final double INCH_PID_KI = 0.3;
     /** The KD for the pid controller used to drive n inches. **/
     public static final double INCH_PID_KD = 0.3;
-    /** The KF for the pid controller used to drive n inches. **/
-    public static final double INCH_PID_KF = 0.3;
     /** The tolerence for the pid controller used to drive n inches. **/
     public static final double INCH_PID_TOL = .1;
     

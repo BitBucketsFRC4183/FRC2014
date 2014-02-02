@@ -6,6 +6,7 @@
 
 package org.bitbuckets.frc2014.subsystems;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.bitbuckets.frc2014.RandomConstants;
@@ -18,12 +19,16 @@ import java.lang.Math;
  * Collection of actuators and sensors that form the drive train subsystem.
  */
 public class DriveTrain extends Subsystem {
-    /** Base driving system standard in wpilibj */
+    /** Base driving system standard in wpilibj **/
     public RobotDrive drive;
-    /** Forward/backward power ranging from -1 (bwd) to 1 (fwd) */
-    double throttle = 1;
-    /** Rotational power ranging from -1 (ccw) to 1 (cw) */
-    double rotation = 1;
+    /** Forward/backward power ranging from -1 (bwd) to 1 (fwd) **/
+    private double throttle = 1;
+    /** Rotational power ranging from -1 (ccw) to 1 (cw) **/
+    private double rotation = 1;
+    /** Right encoder. **/
+    private Encoder encR;
+    /** Left encoder. **/
+    private Encoder encL;
     
     /**
      * Drivetrain constructor, sets up basic robot drive.
@@ -31,6 +36,8 @@ public class DriveTrain extends Subsystem {
     public DriveTrain() {
         super();
         drive  = new RobotDrive(RobotMap.R_MOTOR, RobotMap.L_MOTOR);
+        encR = new Encoder(RobotMap.R_ENCODER_A, RobotMap.R_ENCODER_B);
+        encL = new Encoder(RobotMap.L_ENCODER_A, RobotMap.L_ENCODER_B);
     }
 
     /**
@@ -38,6 +45,24 @@ public class DriveTrain extends Subsystem {
      */
     public void initDefaultCommand() {
 
+    }
+    
+    /**
+     * Gets the rate of the right encoder.
+     * 
+     * @return The rate of the right encoder.
+     */
+    public double getEncRateR(){
+        return encR.getRate();
+    }
+    
+    /**
+     * Gets the rate of the left encoder.
+     * 
+     * @return The rate of the left encoder.
+     */
+    public double getEncRateL(){
+        return encL.getRate();
     }
     
     /**
@@ -50,6 +75,16 @@ public class DriveTrain extends Subsystem {
         throttle = accelerationLimiter(throttle, throttle, RandomConstants.MAX_MAG_CHANGE);
         rotation = accelerationLimiter(rotation, rotation, RandomConstants.MAX_CUR_CHANGE);
         drive.arcadeDrive(throttle, rotation);
+    }
+    
+    /**
+     * Used for auton.
+     * 
+     * @param left
+     * @param right 
+     */
+    public void autonDrive(double left, double right){
+        drive.tankDrive(left, right);
     }
     
     /**
