@@ -21,9 +21,9 @@ public class DriveTrain extends Subsystem {
     /** Base driving system standard in wpilibj */
     public RobotDrive drive;
     /** Forward/backward power ranging from -1 (bwd) to 1 (fwd) */
-    double throttle = 1;
+    double throttle = 0;
     /** Rotational power ranging from -1 (ccw) to 1 (cw) */
-    double rotation = 1;
+    double rotation = 0;
     
     /**
      * Drivetrain constructor, sets up basic robot drive.
