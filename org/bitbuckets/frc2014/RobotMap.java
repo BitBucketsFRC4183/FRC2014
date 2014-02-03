@@ -1,10 +1,14 @@
+/* FRC 4183 - The Bit Buckets
+ * Tucson, AZ
+ *
+ * FRC 2014 Codebase
+ */
 package org.bitbuckets.frc2014;
 
 /**
- * The RobotMap is a mapping from the ports sensors and actuators are wired into
- * to a variable name. This provides flexibility changing wiring, makes checking
- * the wiring easier and significantly reduces the number of magic numbers
- * floating around.
+ * 
+ * 
+ * @author Default
  */
 public class RobotMap {
     
@@ -21,7 +25,7 @@ public class RobotMap {
      */
     public static final int L_MOTOR = 2;
     /**
-     * The left motor for the roller intake
+     * The intake roller motor.
      */
     public static final int ROLLER_MOTOR = 3;
     /**
@@ -55,7 +59,7 @@ public class RobotMap {
     ///////////////////////////////////////////////////////////////////////////////
     
     /**
-     * 
+     * The relay that's connected to the lights.
      */
     public static final int LIGHT_RELAY = 2;
     /**
@@ -72,6 +76,22 @@ public class RobotMap {
      */
     public static final int CATAPAULT_LIMIT_SWITCH = 1;
     /**
+     * The right encoder for the drivetrain.
+     */
+    public static final int R_ENCODER_A = 2;
+    /**
+     * The right encoder for the drivetrain.
+     */
+    public static final int R_ENCODER_B = 2;
+    /**
+     * The left encoder for the drivetrain.
+     */
+    public static final int L_ENCODER_A = 4;
+    /**
+     * The left encoder for the drivetrain.
+     */
+    public static final int L_ENCODER_B = 4;
+    /**
      * The switch that tells the compressor the max pressure
      */
     public static final int PRESSURE_SWITCH = 14;
@@ -85,9 +105,4 @@ public class RobotMap {
      * The port the joystick is plugged in to
      */
     public static final int JOY_1_PORT = 1;
-    
-    // If you are using multiple modules, make sure to define both the port
-    // number and the module. For example you with a rangefinder:
-    // public static final int rangefinderPort = 1;
-    // public static final int rangefinderModule = 1;
 }

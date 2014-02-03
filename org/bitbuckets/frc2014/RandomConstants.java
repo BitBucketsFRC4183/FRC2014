@@ -1,22 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* FRC 4183 - The Bit Buckets
+ * Tucson, AZ
+ *
+ * FRC 2014 Codebase
  */
-
 package org.bitbuckets.frc2014;
 
 /**
- *
- * @author admin
+ * Random constants used in lots of places.
+ * 
+ * @author James Wyeth james.wyeth@gmail.com
  */
 public class RandomConstants {
     
-    //Drivetrain:
+    ///////////////----Drivetrain----///////////////
+    /** The maximum magnitude change. Used in stock drive. **/
     public static final double MAX_MAG_CHANGE = .5;
+    /** The maximum curve change. Used in stock drive. **/
     public static final double MAX_CUR_CHANGE = .5;
+    /** The maximum skim gain. Used in cheesy drive. **/
     public static final double SKIM_GAIN = .5;
+    /** The maximum turn gain. Used in cheesy drive. **/
     public static final double TURN_GAIN = 1.0;
+    /** The cutoff for the throttle. Used in cheesy drive. **/
     public static final double THROTTLE_CUTOFF = .3;
     
     /** The amount of ticks given out by the encoder per rotation. **/
