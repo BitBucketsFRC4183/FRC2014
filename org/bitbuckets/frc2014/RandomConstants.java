@@ -37,7 +37,8 @@ public class RandomConstants {
     public static final double INCH_PID_KD = 0.3;
     /** The tolerence for the pid controller used to drive n inches. **/
     public static final double INCH_PID_TOL = .1;
-    
+    /** The max acceleration for the auton drivestraight. **/
+    public static final double INCH_MAX_ACCEL = .1;
     
     ///////////////----Catapault----///////////////
     /**  **/

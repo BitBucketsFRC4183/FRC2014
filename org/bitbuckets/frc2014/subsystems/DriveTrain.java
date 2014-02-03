@@ -48,6 +48,24 @@ public class DriveTrain extends Subsystem {
     }
     
     /**
+     * Gets the distance of the right encoder since the last reset.
+     * 
+     * @return The distance of the right encoder.
+     */
+    public double getEncDistR(){
+        return encR.getDistance();
+    }
+    
+    /**
+     * Gets the distance of the left encoder since the last reset.
+     * 
+     * @return The distance of the left encoder.
+     */
+    public double getEncDistL(){
+        return encL.getDistance();
+    }
+    
+    /**
      * Gets the rate of the right encoder.
      * 
      * @return The rate of the right encoder.
@@ -83,7 +101,7 @@ public class DriveTrain extends Subsystem {
      * @param left
      * @param right 
      */
-    public void autonDrive(double left, double right){
+    public void tankDrive(double left, double right){
         drive.tankDrive(left, right);
     }
     
