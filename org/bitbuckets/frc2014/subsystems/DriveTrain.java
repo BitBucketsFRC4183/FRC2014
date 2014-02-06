@@ -7,6 +7,7 @@
 package org.bitbuckets.frc2014.subsystems;
 
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.bitbuckets.frc2014.RandomConstants;
@@ -29,6 +30,8 @@ public class DriveTrain extends Subsystem {
     private Encoder encR;
     /** Left encoder. **/
     private Encoder encL;
+    /** Gyroscope. **/
+    private Gyro gyro;
     
     /**
      * Drivetrain constructor, sets up basic robot drive.
@@ -38,6 +41,8 @@ public class DriveTrain extends Subsystem {
         drive  = new RobotDrive(RobotMap.R_MOTOR, RobotMap.L_MOTOR);
         encR = new Encoder(RobotMap.R_ENCODER_A, RobotMap.R_ENCODER_B);
         encL = new Encoder(RobotMap.L_ENCODER_A, RobotMap.L_ENCODER_B);
+        gyro = new Gyro(RobotMap.GYRO);
+        gyro.reset();
     }
 
     /**
@@ -81,6 +86,22 @@ public class DriveTrain extends Subsystem {
      */
     public double getEncRateL(){
         return encL.getRate();
+    }
+    
+    /**
+     * Gets the angle of the gyro.
+     * 
+     * @return The angle of the gyro.
+     */
+    public double getGyroAngle(){
+        return gyro.getAngle();
+    }
+    
+    /**
+     * Resets the gyro to an angle of 0.
+     */
+    public void resetGyro(){
+        gyro.reset();
     }
     
     /**

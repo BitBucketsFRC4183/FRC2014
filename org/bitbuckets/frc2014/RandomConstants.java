@@ -26,19 +26,25 @@ public class RandomConstants {
     
     /** The amount of ticks given out by the encoder per rotation. **/
     public static final int TICKS_PER_ROTATION = 1000;
-    
     /** The amount of encoder ticks it takes to go one inch. Ticks per rotation divided by wheel circumference. **/
-    public static final int TICKS_PER_INCH = TICKS_PER_ROTATION/1;
+    public static final int TICKS_PER_INCH = (int)(TICKS_PER_ROTATION/(4*Math.PI));
     /** The KP for the pid controller used to drive n inches. **/
     public static final double INCH_PID_KP = 0.3;
     /** The KI for the pid controller used to drive n inches. **/
     public static final double INCH_PID_KI = 0.3;
     /** The KD for the pid controller used to drive n inches. **/
     public static final double INCH_PID_KD = 0.3;
-    /** The tolerence for the pid controller used to drive n inches. **/
-    public static final double INCH_PID_TOL = .1;
     /** The max acceleration for the auton drivestraight. **/
     public static final double INCH_MAX_ACCEL = .1;
+    
+    /** The KP for the pid controller used to turn n degrees. **/
+    public static final double DEG_PID_KP = 0.3;
+    /** The KI for the pid controller used to turn n degrees.. **/
+    public static final double DEG_PID_KI = 0.3;
+    /** The KD for the pid controller used to turn n degrees. **/
+    public static final double DEG_PID_KD = 0.3;
+    /** The max acceleration for the auton driveturn. **/
+    public static final double DEG_MAX_ACCEL = .1;
     
     ///////////////----Catapault----///////////////
     /**  **/
