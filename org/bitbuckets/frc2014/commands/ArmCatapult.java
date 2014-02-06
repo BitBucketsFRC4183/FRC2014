@@ -10,11 +10,12 @@ package org.bitbuckets.frc2014.commands;
  *
  * @author Default.
  */
-public class UnFire extends CommandBase {
+
+public class ArmCatapult extends CommandBase {
     /**
      * Makes a new UnFire command.
      */
-    public UnFire() {
+    public ArmCatapult() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(catapult);

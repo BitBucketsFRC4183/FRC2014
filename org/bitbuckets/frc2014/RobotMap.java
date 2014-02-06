@@ -42,6 +42,11 @@ public class RobotMap {
      */
     public static final int WINCH_SHIFTER_2 = 2;
     /**
+     * The latch solenoid for firing
+     */
+    public static final int CATAPULT_LATCH = 5;
+    
+    /**
      * The first port for the double solenoid controlling the intake pistons.
      */
     public static final int INTAKE_SOLENOID_1 = 3;
