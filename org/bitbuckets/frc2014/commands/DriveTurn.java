@@ -91,7 +91,7 @@ public class DriveTurn extends PIDCommand {
     }
 
     protected double returnPIDInput() {
-        return (Math.abs(CommandBase.driveTrain.getEncRateL()) + Math.abs(CommandBase.driveTrain.getEncRateR()))/2;
+        return CommandBase.driveTrain.getGyroRate();
     }
 
     protected void usePIDOutput(double output) {

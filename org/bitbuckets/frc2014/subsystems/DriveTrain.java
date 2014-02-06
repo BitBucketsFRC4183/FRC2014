@@ -40,7 +40,9 @@ public class DriveTrain extends Subsystem {
         super();
         drive  = new RobotDrive(RobotMap.R_MOTOR, RobotMap.L_MOTOR);
         encR = new Encoder(RobotMap.R_ENCODER_A, RobotMap.R_ENCODER_B);
+        encR.start();
         encL = new Encoder(RobotMap.L_ENCODER_A, RobotMap.L_ENCODER_B);
+        encL.start();
         gyro = new Gyro(RobotMap.GYRO);
         gyro.reset();
     }
@@ -89,12 +91,29 @@ public class DriveTrain extends Subsystem {
     }
     
     /**
+     * Resets the encoders to 0.
+     */
+    public void resetEncoders(){
+        encR.reset();
+        encL.reset();
+    }
+    
+    /**
      * Gets the angle of the gyro.
      * 
      * @return The angle of the gyro.
      */
     public double getGyroAngle(){
         return gyro.getAngle();
+    }
+    
+    /**
+     * Gets the rate that the gyro is turning.
+     * 
+     * @return 
+     */
+    public double getGyroRate(){
+        return gyro.getRate();
     }
     
     /**
@@ -110,9 +129,9 @@ public class DriveTrain extends Subsystem {
      * @param   throttle    forward/backward power from -1 (bwd) to 1 (fwd)     
      * @param   rotation    rotational power from -1 (ccw) to 1 (cw)
      */
-    public void drive(double throttle, double rotation){
-        throttle = accelerationLimiter(throttle, throttle, RandomConstants.MAX_MAG_CHANGE);
-        rotation = accelerationLimiter(rotation, rotation, RandomConstants.MAX_CUR_CHANGE);
+    public void drive(double outputMagnitude, double curve){
+        throttle = accelerationLimiter(throttle, outputMagnitude, RandomConstants.MAX_MAG_CHANGE);
+        rotation = accelerationLimiter(rotation, curve, RandomConstants.MAX_CUR_CHANGE);
         drive.arcadeDrive(throttle, rotation);
     }
     
@@ -169,8 +188,7 @@ public class DriveTrain extends Subsystem {
      * @param   maxChange       The maximum amount the value can change per iteration.
      * @return                  The limited value.
      */
-    public double accelerationLimiter(double oldValue, 
-            double requestedValue, double maxChange) {
+    public double accelerationLimiter(double oldValue, double requestedValue, double maxChange) {
         if(requestedValue - oldValue > maxChange) {
             return oldValue + maxChange;
         } else if(oldValue - requestedValue > maxChange) {
