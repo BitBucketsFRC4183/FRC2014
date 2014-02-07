@@ -30,7 +30,7 @@ public class DriveTrain extends Subsystem {
      */
     public DriveTrain() {
         super();
-        drive  = new RobotDrive(RobotMap.R_MOTOR, RobotMap.L_MOTOR);
+        drive  = new RobotDrive(RobotMap.R_MOTOR_A, RobotMap.R_MOTOR_B, RobotMap.L_MOTOR_A, RobotMap.L_MOTOR_B);
     }
 
     /**
