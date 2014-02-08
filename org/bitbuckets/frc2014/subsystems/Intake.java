@@ -51,7 +51,7 @@ public class Intake extends Subsystem {
      */
     public void setIntakeRoller(double speed){
         rollerTop.set(speed);
-        rollerLeft.set(speed);
+        rollerLeft.set(-speed);
         rollerRight.set(speed);
     }
     

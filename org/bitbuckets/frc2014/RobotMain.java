@@ -29,8 +29,9 @@ public class RobotMain extends IterativeRobot {
     public void robotInit() {
         // Initialize all subsystems
         CommandBase.init();
-        CommandBase.oi.fireButton.whenPressed(new Fire());
-        CommandBase.oi.retractButton.whenPressed(new ArmCatapult());
+//        CommandBase.oi.fireButton.whenPressed(new Fire());
+//        CommandBase.oi.retractButton.whenPressed(new ArmCatapult());
+        CommandBase.oi.latchPiston.whenPressed(new Fire());
         CommandBase.oi.intakeRollerButton.whenPressed(new RollerOn());
         CommandBase.oi.intakeRollerButton.whenReleased(new RollerOff());
         CommandBase.oi.outtakeButton.whenPressed(new OuttakeBall());
@@ -74,6 +75,21 @@ public class RobotMain extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        System.out.println(CommandBase.catapult.getRetracted());
+        if(!CommandBase.oi.latchPiston.get()) {
+            CommandBase.catapult.setLatchClosed();
+        }
+        if(CommandBase.oi.winchButton.get()){
+            System.out.println("winchbutton");
+            CommandBase.catapult.setWinchMotorsOn();
+        }else if(!CommandBase.oi.latchPiston.get()){
+            CommandBase.catapult.setWinchMotorsOff();
+        }
+        if(CommandBase.oi.fireButton.get()){
+            CommandBase.catapult.setShifterActive();
+        }else{
+            CommandBase.catapult.setShifterNeutral();
+        }
         CommandBase.driveTrain.drive(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX), CommandBase.oi.stick.getAxis(Joystick.AxisType.kY));
     }
     

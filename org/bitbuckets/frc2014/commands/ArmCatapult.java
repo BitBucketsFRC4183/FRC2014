@@ -41,7 +41,7 @@ public class ArmCatapult extends CommandBase {
      * @return Returns true if the catapult is retracted.
      */
     protected boolean isFinished() {
-        return catapult.retracted.get();
+        return catapult.getRetracted();
     }
 
     /**
