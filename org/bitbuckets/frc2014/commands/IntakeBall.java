@@ -6,6 +6,8 @@
 
 package org.bitbuckets.frc2014.commands;
 
+import org.bitbuckets.frc2014.RandomConstants;
+
 /**
  * @author    Cal Miller cal@bpmpc.net
  * 
@@ -26,7 +28,7 @@ public class IntakeBall extends CommandBase {
      */
     protected void initialize() {
         intake.setDeployed(true);//Makes the intake go down.
-        intake.setIntakeRoller(-1);//Makes intake pull stuff.
+        intake.setIntakeRoller(RandomConstants.INTAKE_FORWARDS);//Makes intake pull stuff.
     } 
 
     /**

@@ -21,16 +21,16 @@ public class DriveTrain extends Subsystem {
     /** Base driving system standard in wpilibj */
     public RobotDrive drive;
     /** Forward/backward power ranging from -1 (bwd) to 1 (fwd) */
-    double throttle = 1;
+    double throttle = 0;
     /** Rotational power ranging from -1 (ccw) to 1 (cw) */
-    double rotation = 1;
+    double rotation = 0;
     
     /**
      * Drivetrain constructor, sets up basic robot drive.
      */
     public DriveTrain() {
         super();
-        drive  = new RobotDrive(RobotMap.R_MOTOR, RobotMap.L_MOTOR);
+        drive  = new RobotDrive(RobotMap.R_MOTOR_A, RobotMap.R_MOTOR_B, RobotMap.L_MOTOR_A, RobotMap.L_MOTOR_B);
     }
 
     /**
@@ -42,15 +42,14 @@ public class DriveTrain extends Subsystem {
     
     /**
      * Basic driving method.  Can be used in autonomous and teleop.
+     * 
      * @param   throttle    forward/backward power from -1 (bwd) to 1 (fwd)     
      * @param   rotation    rotational power from -1 (ccw) to 1 (cw)
      */
     public void drive(double throttle, double rotation){
-        this.throttle = accelerationLimiter(this.throttle, throttle, 
-                RandomConstants.MAX_MAG_CHANGE);
-        this.rotation = accelerationLimiter(this.rotation, rotation, 
-                RandomConstants.MAX_CUR_CHANGE);
-        drive.arcadeDrive(this.throttle, -this.rotation);
+        throttle = accelerationLimiter(throttle, throttle, RandomConstants.MAX_MAG_CHANGE);
+        rotation = accelerationLimiter(rotation, rotation, RandomConstants.MAX_CUR_CHANGE);
+        drive.arcadeDrive(throttle, rotation);
     }
     
     /**
@@ -58,6 +57,7 @@ public class DriveTrain extends Subsystem {
      * "cheesy drive". 
      * See reference:
      * http://www.chiefdelphi.com/forums/showpost.php?p=1181728&postcount=2
+     * 
      * @param   outputMagnitude    forward/backward power from -1 (bwd) to 1 (fwd) 
      * @param   curve              rotational power from -1 (ccw) to 1 (cw)
      */
@@ -76,6 +76,7 @@ public class DriveTrain extends Subsystem {
      * If drive speed for one side > 1, subtract some of the difference from 
      * the other side's speed to maintain constant turning performance.
      * Used by cheesyDrive.
+     * 
      * @param   val     value to "skim"
      * @return          sign(val) - val, scaled by some constant SKIM_GAIN,
      *                  if the absolute value of val is > 1, 0 otherwise
@@ -88,6 +89,7 @@ public class DriveTrain extends Subsystem {
     
     /**
      * Bounds the change in a value to some limit maxChange.
+     * 
      * @param   oldValue        The value from the previous iteration.
      * @param   requestedValue  The value being requested to be changed to.
      * @param   maxChange       The maximum amount the value can change per iteration.
