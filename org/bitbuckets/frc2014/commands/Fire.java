@@ -25,6 +25,7 @@ public class Fire extends CommandBase {
      * Called just before this Command runs the first time.
      */
     protected void initialize() {
+        catapult.setShifterNeutral();
         catapult.setLatchOpen();//Makes the catapult go up
     }
 
