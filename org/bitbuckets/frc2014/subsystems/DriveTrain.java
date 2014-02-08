@@ -31,6 +31,7 @@ public class DriveTrain extends Subsystem {
     public DriveTrain() {
         super();
         drive  = new RobotDrive(RobotMap.R_MOTOR_A, RobotMap.R_MOTOR_B, RobotMap.L_MOTOR_A, RobotMap.L_MOTOR_B);
+        drive.setExpiration(.25);
     }
 
     /**
@@ -47,8 +48,8 @@ public class DriveTrain extends Subsystem {
      * @param   rotation    rotational power from -1 (ccw) to 1 (cw)
      */
     public void drive(double throttle, double rotation){
-        throttle = accelerationLimiter(throttle, throttle, RandomConstants.MAX_MAG_CHANGE);
-        rotation = accelerationLimiter(rotation, rotation, RandomConstants.MAX_CUR_CHANGE);
+        throttle = accelerationLimiter(-throttle, -throttle, RandomConstants.MAX_MAG_CHANGE);
+        rotation = accelerationLimiter(-rotation, -rotation, RandomConstants.MAX_CUR_CHANGE);
         drive.arcadeDrive(throttle, rotation);
     }
     

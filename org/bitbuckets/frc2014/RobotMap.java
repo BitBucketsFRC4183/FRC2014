@@ -37,13 +37,13 @@ public class RobotMap {
      */
     public static final int TOP_ROLLER_MOTOR = 5;
     /**
-     * The left intake roller motor.
-     */
-    public static final int LEFT_ROLLER_MOTOR = 6;
-    /**
      * The right intake roller motor.
      */
-    public static final int RIGHT_ROLLER_MOTOR = 7;
+    public static final int RIGHT_ROLLER_MOTOR = 6;
+    /**
+     * The left intake roller motor.
+     */
+    public static final int LEFT_ROLLER_MOTOR = 7;
     /**
      * Mini-CIMs driving ball-shifter winch.
      */
@@ -54,21 +54,21 @@ public class RobotMap {
     ///////////////////////////////////////////////////////////////////////////////////
     
     /**
-     * The first port for the double solenoid controlling the winch shifter.
-     */
-    public static final int WINCH_SHIFTER_1 = 1;
-    /**
-     * The second port for the double solenoid controlling the winch shifter.
-     */
-    public static final int WINCH_SHIFTER_2 = 2;
-    /**
      * The first port for the double solenoid controlling the intake pistons.
      */
-    public static final int INTAKE_SOLENOID_1 = 3;
+    public static final int INTAKE_SOLENOID_1 = 1;
     /**
      * The second port for the double solenoid controlling the intake pistons.
      */
-    public static final int INTAKE_SOLENOID_2 = 4;
+    public static final int INTAKE_SOLENOID_2 = 2;
+    /**
+     * The first port for the double solenoid controlling the winch shifter.
+     */
+    public static final int WINCH_SHIFTER_1 = 3;
+    /**
+     * The second port for the double solenoid controlling the winch shifter.
+     */
+    public static final int WINCH_SHIFTER_2 = 4;
     /**
      * The latch solenoid for firing
      */
