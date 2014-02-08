@@ -50,7 +50,6 @@ public class ArmCatapult extends CommandBase {
     protected void end() {
         catapult.setWinchMotorsOff();
         catapult.setLatchClosed();
-        catapult.setShifterNeutral();
     }
 
     /**
