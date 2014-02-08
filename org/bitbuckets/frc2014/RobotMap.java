@@ -69,6 +69,10 @@ public class RobotMap {
      * The second port for the double solenoid controlling the intake pistons.
      */
     public static final int INTAKE_SOLENOID_2 = 4;
+    /**
+     * The latch solenoid for firing
+     */
+    public static final int CATAPULT_LATCH = 5;
     
     ///////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////----RELAY----/////////////////////////////////

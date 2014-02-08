@@ -8,6 +8,7 @@ package org.bitbuckets.frc2014.subsystems;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.bitbuckets.frc2014.RandomConstants;
@@ -26,6 +27,11 @@ public class Catapault extends Subsystem {
     
     /** digital switch that is closed (false) when the winch is armed **/
     public DigitalInput retracted;
+    /** Firing cylinder*/
+    private Solenoid latch;
+    
+          
+     
     
     /**
      * Catapult constructor, sets up actuators and sensors.
@@ -35,6 +41,7 @@ public class Catapault extends Subsystem {
         winch = new Victor(RobotMap.WINCH_MOTOR);
         shifter = new DoubleSolenoid(RobotMap.WINCH_SHIFTER_1, RobotMap.WINCH_SHIFTER_2);
         retracted = new DigitalInput(RobotMap.CATAPAULT_LIMIT_SWITCH);
+        latch = new Solenoid(RobotMap.CATAPULT_LATCH);
     }
     
     /**
@@ -42,33 +49,50 @@ public class Catapault extends Subsystem {
      */
     public void initDefaultCommand() {
         
+    }    
+    
+    /**
+     * Turns on winch motors.
+     */
+    public void setWinchMotorsOn(){
+        winch.set(RandomConstants.WINCH_SPEED);
     }
     
     /**
-     * Sets the state of the pneumatic shifting solenoid to shift the ball
-     * shifter into neutral position to fire or low-gear for winching.
-     * @param     fired    fires catapult when true, engages motor otherwise
+     * Turns off winch motors.
      */
-    public void setCatapaultFired(boolean fired){
-        if(fired) {
-            shifter.set(DoubleSolenoid.Value.kForward);
-        } else {
-            shifter.set(DoubleSolenoid.Value.kReverse);
-        }
-        System.out.println("\t" + retracted.get() + "\t");
+    public void setWinchMotorsOff(){
+        winch.set(0);
     }
-
+    
     /**
-     * Winches back the catapult by driving the ball-shifter motor(s).
-     * @param     moving    enables winch motor when true, disables when false
+     * Sets shifter to active gear.
      */
-    public void setCatapaultRetracted(boolean moving){
-        if(moving) {
-            winch.set(RandomConstants.WINCH_SPEED);
-        } else {
-            winch.set(0);
-        }
+    public void setShifterActive(){
+        shifter.set(DoubleSolenoid.Value.kForward);   
     }
+    
+    /**
+     * Sets shifter to neutral gear.
+     */
+    public void setShifterNeutral(){
+        shifter.set(DoubleSolenoid.Value.kReverse);
+    }
+    
+    /**
+     * Sets latch to open position to fire catapult.
+     */
+    public void setLatchOpen(){
+        latch.set(true);
+    }
+    
+    /**
+     * Sets latch to closed position to lock catapult.
+     */
+    public void setLatchClosed(){
+        latch.set(false);
+    }
+    
     
 }
 

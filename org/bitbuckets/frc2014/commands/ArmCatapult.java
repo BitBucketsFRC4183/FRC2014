@@ -10,11 +10,12 @@ package org.bitbuckets.frc2014.commands;
  *
  * @author Default.
  */
-public class UnFire extends CommandBase {
+
+public class ArmCatapult extends CommandBase {
     /**
      * Makes a new UnFire command.
      */
-    public UnFire() {
+    public ArmCatapult() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(catapult);
@@ -24,14 +25,14 @@ public class UnFire extends CommandBase {
      * Called just before this Command runs the first time.
      */
     protected void initialize() {
-        catapult.setCatapaultFired(false);
+        catapult.setShifterActive();
     }
 
     /**
      * Called repeatedly when this Command is scheduled to run.
      */
     protected void execute() {
-        catapult.setCatapaultRetracted(true);
+        catapult.setWinchMotorsOn();
     }
 
     /**
@@ -48,7 +49,9 @@ public class UnFire extends CommandBase {
      * Called once after isFinished returns true.
      */
     protected void end() {
-        catapult.setCatapaultRetracted(false);
+        catapult.setWinchMotorsOff();
+        catapult.setLatchClosed();
+        catapult.setShifterNeutral();
     }
 
     /**
@@ -56,6 +59,5 @@ public class UnFire extends CommandBase {
      *  subsystems is scheduled to run
      */
     protected void interrupted() {
-        catapult.setCatapaultRetracted(false);
     }
 }
