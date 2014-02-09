@@ -48,9 +48,9 @@ public class DriveTrain extends Subsystem {
      * @param   rotation    rotational power from -1 (ccw) to 1 (cw)
      */
     public void drive(double throttle, double rotation){
-        throttle = accelerationLimiter(-throttle, -throttle, RandomConstants.MAX_MAG_CHANGE);
-        rotation = accelerationLimiter(-rotation, -rotation, RandomConstants.MAX_CUR_CHANGE);
-        drive.arcadeDrive(throttle, rotation);
+        throttle = accelerationLimiter(Math.abs(throttle)*throttle, Math.abs(throttle)*throttle, RandomConstants.MAX_MAG_CHANGE);
+        rotation = accelerationLimiter(Math.abs(rotation)*rotation, Math.abs(rotation)*rotation, RandomConstants.MAX_CUR_CHANGE);
+        drive.arcadeDrive(-throttle, -rotation);
     }
     
     /**
