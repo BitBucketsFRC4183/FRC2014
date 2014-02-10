@@ -6,6 +6,8 @@
 
 package org.bitbuckets.frc2014.commands;
 
+import org.bitbuckets.frc2014.RandomConstants;
+
 /**
  * @author    Cal Miller cal@bpmpc.net
  * 
@@ -44,7 +46,7 @@ public class Fire extends CommandBase {
      * @return Always returns true.
      */
     protected boolean isFinished() {
-        return (System.currentTimeMillis() - startTime> 500);
+        return (System.currentTimeMillis() - startTime> RandomConstants.FIRE_REVERSE_MILLIS);
     }
 
     /**

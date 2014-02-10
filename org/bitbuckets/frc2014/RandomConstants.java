@@ -44,6 +44,8 @@ public class RandomConstants {
     ///////////////----Catapault----///////////////
     /** The speed of the winch. **/
     public static final double WINCH_SPEED = -1.0;
+    /** The time that the winch runs in reverse to disengage the shifter. **/
+    public static long FIRE_REVERSE_MILLIS = 300;
     
     ///////////////----Intake----///////////////
     /** The constant that controls the speed of the intake roller. **/

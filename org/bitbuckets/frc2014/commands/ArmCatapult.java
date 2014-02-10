@@ -12,6 +12,9 @@ package org.bitbuckets.frc2014.commands;
  */
 
 public class ArmCatapult extends CommandBase {
+    /** Timer for calculating winching time */
+    private long winchTime;
+    
     /**
      * Makes a new UnFire command.
      */
@@ -26,6 +29,8 @@ public class ArmCatapult extends CommandBase {
      */
     protected void initialize() {
         catapult.setShifterActive();
+        catapult.setLatchClosed();
+        winchTime = System.currentTimeMillis();
     }
 
     /**
@@ -50,6 +55,7 @@ public class ArmCatapult extends CommandBase {
     protected void end() {
         catapult.setWinchMotorsOff();
         catapult.setLatchClosed();
+        System.out.println("Winching time: " + (System.currentTimeMillis() - winchTime));
     }
 
     /**
