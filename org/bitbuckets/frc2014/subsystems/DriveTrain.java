@@ -6,6 +6,8 @@
 
 package org.bitbuckets.frc2014.subsystems;
 
+import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.bitbuckets.frc2014.RandomConstants;
@@ -18,12 +20,18 @@ import java.lang.Math;
  * Collection of actuators and sensors that form the drive train subsystem.
  */
 public class DriveTrain extends Subsystem {
-    /** Base driving system standard in wpilibj */
-    public RobotDrive drive;
     /** Forward/backward power ranging from -1 (bwd) to 1 (fwd) */
     double throttle = 0;
     /** Rotational power ranging from -1 (ccw) to 1 (cw) */
     double rotation = 0;
+    /** Base driving system standard in wpilibj **/
+    public RobotDrive drive;
+    /** Right encoder. **/
+    private Encoder encR;
+    /** Left encoder. **/
+    private Encoder encL;
+    /** Gyroscope. **/
+    private Gyro gyro;
     
     /**
      * Drivetrain constructor, sets up basic robot drive.
@@ -32,6 +40,12 @@ public class DriveTrain extends Subsystem {
         super();
         drive  = new RobotDrive(RobotMap.R_MOTOR_A, RobotMap.R_MOTOR_B, RobotMap.L_MOTOR_A, RobotMap.L_MOTOR_B);
         drive.setExpiration(.25);
+        encR = new Encoder(RobotMap.R_ENCODER_A, RobotMap.R_ENCODER_B);
+        encR.start();
+        encL = new Encoder(RobotMap.L_ENCODER_A, RobotMap.L_ENCODER_B);
+        encL.start();
+        gyro = new Gyro(RobotMap.GYRO);
+        gyro.reset();
     }
 
     /**
@@ -39,6 +53,75 @@ public class DriveTrain extends Subsystem {
      */
     public void initDefaultCommand() {
 
+    }
+    
+    /**
+     * Gets the distance of the right encoder since the last reset.
+     * 
+     * @return The distance of the right encoder.
+     */
+    public double getEncDistR(){
+        return encR.getDistance();
+    }
+    
+    /**
+     * Gets the distance of the left encoder since the last reset.
+     * 
+     * @return The distance of the left encoder.
+     */
+    public double getEncDistL(){
+        return encL.getDistance();
+    }
+    
+    /**
+     * Gets the rate of the right encoder.
+     * 
+     * @return The rate of the right encoder.
+     */
+    public double getEncRateR(){
+        return encR.getRate();
+    }
+    
+    /**
+     * Gets the rate of the left encoder.
+     * 
+     * @return The rate of the left encoder.
+     */
+    public double getEncRateL(){
+        return encL.getRate();
+    }
+    
+    /**
+     * Resets the encoders to 0.
+     */
+    public void resetEncoders(){
+        encR.reset();
+        encL.reset();
+    }
+    
+    /**
+     * Gets the angle of the gyro.
+     * 
+     * @return The angle of the gyro.
+     */
+    public double getGyroAngle(){
+        return gyro.getAngle();
+    }
+    
+    /**
+     * Gets the rate that the gyro is turning.
+     * 
+     * @return 
+     */
+    public double getGyroRate(){
+        return gyro.getRate();
+    }
+    
+    /**
+     * Resets the gyro to an angle of 0.
+     */
+    public void resetGyro(){
+        gyro.reset();
     }
     
     /**
@@ -51,6 +134,16 @@ public class DriveTrain extends Subsystem {
         throttle = accelerationLimiter(Math.abs(throttle)*throttle, Math.abs(throttle)*throttle, RandomConstants.MAX_MAG_CHANGE);
         rotation = accelerationLimiter(Math.abs(rotation)*rotation, Math.abs(rotation)*rotation, RandomConstants.MAX_CUR_CHANGE);
         drive.arcadeDrive(-throttle, -rotation);
+    }
+    
+    /**
+     * Used for auton.
+     * 
+     * @param left
+     * @param right 
+     */
+    public void tankDrive(double left, double right){
+        drive.tankDrive(left, right);
     }
     
     /**
@@ -96,8 +189,7 @@ public class DriveTrain extends Subsystem {
      * @param   maxChange       The maximum amount the value can change per iteration.
      * @return                  The limited value.
      */
-    public double accelerationLimiter(double oldValue, 
-            double requestedValue, double maxChange) {
+    public double accelerationLimiter(double oldValue, double requestedValue, double maxChange) {
         if(requestedValue - oldValue > maxChange) {
             return oldValue + maxChange;
         } else if(oldValue - requestedValue > maxChange) {
