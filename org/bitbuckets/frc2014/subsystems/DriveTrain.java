@@ -20,12 +20,12 @@ import java.lang.Math;
  * Collection of actuators and sensors that form the drive train subsystem.
  */
 public class DriveTrain extends Subsystem {
+    /** Forward/backward power ranging from -1 (bwd) to 1 (fwd) */
+    double throttle = 0;
+    /** Rotational power ranging from -1 (ccw) to 1 (cw) */
+    double rotation = 0;
     /** Base driving system standard in wpilibj **/
     public RobotDrive drive;
-    /** Forward/backward power ranging from -1 (bwd) to 1 (fwd) **/
-    private double throttle = 1;
-    /** Rotational power ranging from -1 (ccw) to 1 (cw) **/
-    private double rotation = 1;
     /** Right encoder. **/
     private Encoder encR;
     /** Left encoder. **/
@@ -38,7 +38,8 @@ public class DriveTrain extends Subsystem {
      */
     public DriveTrain() {
         super();
-        drive  = new RobotDrive(RobotMap.R_MOTOR, RobotMap.L_MOTOR);
+        drive  = new RobotDrive(RobotMap.R_MOTOR_A, RobotMap.R_MOTOR_B, RobotMap.L_MOTOR_A, RobotMap.L_MOTOR_B);
+        drive.setExpiration(.25);
         encR = new Encoder(RobotMap.R_ENCODER_A, RobotMap.R_ENCODER_B);
         encR.start();
         encL = new Encoder(RobotMap.L_ENCODER_A, RobotMap.L_ENCODER_B);
@@ -129,10 +130,10 @@ public class DriveTrain extends Subsystem {
      * @param   throttle    forward/backward power from -1 (bwd) to 1 (fwd)     
      * @param   rotation    rotational power from -1 (ccw) to 1 (cw)
      */
-    public void drive(double outputMagnitude, double curve){
-        throttle = accelerationLimiter(throttle, outputMagnitude, RandomConstants.MAX_MAG_CHANGE);
-        rotation = accelerationLimiter(rotation, curve, RandomConstants.MAX_CUR_CHANGE);
-        drive.arcadeDrive(throttle, rotation);
+    public void drive(double throttle, double rotation){
+        throttle = accelerationLimiter(Math.abs(throttle)*throttle, Math.abs(throttle)*throttle, RandomConstants.MAX_MAG_CHANGE);
+        rotation = accelerationLimiter(Math.abs(rotation)*rotation, Math.abs(rotation)*rotation, RandomConstants.MAX_CUR_CHANGE);
+        drive.arcadeDrive(-throttle, -rotation);
     }
     
     /**

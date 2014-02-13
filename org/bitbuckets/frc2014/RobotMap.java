@@ -17,42 +17,62 @@ public class RobotMap {
     /////////////////////////////////////////////////////////////////////////////
     
     /**
-     * The right motor on the drivetrain.
+     * The right front motor on the drivetrain.
      */
-    public static final int R_MOTOR = 1;
+    public static final int R_MOTOR_A = 1;
     /**
-     * The left motor on the drivetrain.
+     * The right rear motor on the drivetrain.
      */
-    public static final int L_MOTOR = 2;
+    public static final int R_MOTOR_B = 2;
     /**
-     * The intake roller motor.
+     * The left front motor on the drivetrain.
      */
-    public static final int ROLLER_MOTOR = 3;
+    public static final int L_MOTOR_A = 3;
+    /**
+     * The left rear motor on the drivetrain.
+     */
+    public static final int L_MOTOR_B = 4;
+    /**
+     * The top intake roller motor.
+     */
+    public static final int TOP_ROLLER_MOTOR = 5;
+    /**
+     * The right intake roller motor.
+     */
+    public static final int RIGHT_ROLLER_MOTOR = 6;
+    /**
+     * The left intake roller motor.
+     */
+    public static final int LEFT_ROLLER_MOTOR = 7;
     /**
      * Mini-CIMs driving ball-shifter winch.
      */
-    public static final int WINCH_MOTOR = 4;
+    public static final int WINCH_MOTOR = 8;
     
     ///////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////----SOLENOIDS----/////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////
     
     /**
-     * The first port for the double solenoid controlling the winch shifter.
-     */
-    public static final int WINCH_SHIFTER_1 = 1;
-    /**
-     * The second port for the double solenoid controlling the winch shifter.
-     */
-    public static final int WINCH_SHIFTER_2 = 2;
-    /**
      * The first port for the double solenoid controlling the intake pistons.
      */
-    public static final int INTAKE_SOLENOID_1 = 3;
+    public static final int INTAKE_SOLENOID_1 = 1;
     /**
      * The second port for the double solenoid controlling the intake pistons.
      */
-    public static final int INTAKE_SOLENOID_2 = 4;
+    public static final int INTAKE_SOLENOID_2 = 2;
+    /**
+     * The first port for the double solenoid controlling the winch shifter.
+     */
+    public static final int WINCH_SHIFTER_1 = 3;
+    /**
+     * The second port for the double solenoid controlling the winch shifter.
+     */
+    public static final int WINCH_SHIFTER_2 = 4;
+    /**
+     * The latch solenoid for firing
+     */
+    public static final int CATAPULT_LATCH = 5;
     
     ///////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////----RELAY----/////////////////////////////////

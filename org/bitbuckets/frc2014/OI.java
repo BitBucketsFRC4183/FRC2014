@@ -45,6 +45,10 @@ public class OI {
      * The button that makes the intake roller roll in.
      */
     public Button intakeRollerButton = new JoystickButton(stick, 12);
+    /**
+     * The button that controls the catapult winch
+     */
+    public Button winchButton = new JoystickButton(stick, 3);
      /**
      * The button that starts and stops the lights
      */

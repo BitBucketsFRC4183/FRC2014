@@ -18,7 +18,11 @@ import org.bitbuckets.frc2014.RobotMap;
  */
 public class Intake extends Subsystem {
     /** Top ABS intake roller driven by RS550 on a Victor */
-    private Victor roller;
+    private Victor rollerTop;
+    /** Top ABS intake roller driven by RS550 on a Victor */
+    private Victor rollerLeft;
+    /** Top ABS intake roller driven by RS550 on a Victor */
+    private Victor rollerRight;
     /** Two double-acting cylinders to raise/lower the intake arm */
     private DoubleSolenoid deployer;
     
@@ -27,7 +31,9 @@ public class Intake extends Subsystem {
      */
     public Intake() {
         super();
-        roller = new Victor(RobotMap.ROLLER_MOTOR);
+        rollerTop = new Victor(RobotMap.TOP_ROLLER_MOTOR);
+        rollerLeft = new Victor(RobotMap.LEFT_ROLLER_MOTOR);
+        rollerRight = new Victor(RobotMap.RIGHT_ROLLER_MOTOR);
         deployer = new DoubleSolenoid(RobotMap.INTAKE_SOLENOID_1, 
                 RobotMap.INTAKE_SOLENOID_2);
     }
@@ -43,8 +49,10 @@ public class Intake extends Subsystem {
      * Sets the speed of the intake roller.
      * @param   speed   intake roller speed from -1 (out) to 1 (in)
      */
-    public void setIntakeRoller(int speed){
-        roller.set(speed);
+    public void setIntakeRoller(double speed){
+        rollerTop.set(speed);
+        rollerLeft.set(speed);
+        rollerRight.set(speed);
     }
     
     /**

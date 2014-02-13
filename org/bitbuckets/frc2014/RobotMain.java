@@ -30,7 +30,7 @@ public class RobotMain extends IterativeRobot {
         // Initialize all subsystems
         CommandBase.init();
         CommandBase.oi.fireButton.whenPressed(new Fire());
-        CommandBase.oi.retractButton.whenPressed(new UnFire());
+        CommandBase.oi.retractButton.whenPressed(new ArmCatapult());
         CommandBase.oi.intakeRollerButton.whenPressed(new RollerOn());
         CommandBase.oi.intakeRollerButton.whenReleased(new RollerOff());
         CommandBase.oi.outtakeButton.whenPressed(new OuttakeBall());
@@ -74,8 +74,7 @@ public class RobotMain extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        CommandBase.driveTrain.drive(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX), 
-                CommandBase.oi.stick.getAxis(Joystick.AxisType.kY));
+        CommandBase.driveTrain.drive(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX), CommandBase.oi.stick.getAxis(Joystick.AxisType.kY));
     }
     
     /**

@@ -47,6 +47,14 @@ public class RandomConstants {
     public static final double DEG_MAX_ACCEL = .1;
     
     ///////////////----Catapault----///////////////
-    /**  **/
+    /** The speed of the winch. **/
     public static final double WINCH_SPEED = 1.0;
+    
+    ///////////////----Intake----///////////////
+    /** The constant that controls the speed of the intake roller. **/
+    public static final double INTAKE_FORWARDS = -1;
+    /** The constant that turns the intake roller off. **/
+    public static final double INTAKE_OFF = 0;
+    /** The constant that controls the speed of the intake roller in the opposite direction. **/
+    public static final double INTAKE_BACKWARDS = 1;
 }

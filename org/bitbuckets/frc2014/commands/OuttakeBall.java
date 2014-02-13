@@ -6,6 +6,8 @@
 
 package org.bitbuckets.frc2014.commands;
 
+import org.bitbuckets.frc2014.RandomConstants;
+
 /**
  * @author    Cal Miller cal@bpmpc.net
  * 
@@ -27,7 +29,7 @@ public class OuttakeBall extends CommandBase {
      */
     protected void initialize() {
         //in.setDeployed(true);//Makes the intake go out.
-        intake.setIntakeRoller(1);//Makes the roller go backwards.
+        intake.setIntakeRoller(RandomConstants.INTAKE_BACKWARDS);//Makes the roller go backwards.
     }
 
     /**
