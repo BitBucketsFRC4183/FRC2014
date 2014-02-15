@@ -6,6 +6,8 @@
 
 package org.bitbuckets.frc2014.commands;
 
+import org.bitbuckets.frc2014.RandomConstants;
+
 /**
  *
  * @author Default.
@@ -31,6 +33,7 @@ public class ArmCatapult extends CommandBase {
         catapult.setShifterActive();
         catapult.setLatchClosed();
         winchTime = System.currentTimeMillis();
+        System.out.println("Initialized ArmCatapult.");
     }
 
     /**
@@ -46,7 +49,7 @@ public class ArmCatapult extends CommandBase {
      * @return Returns true if the catapult is retracted.
      */
     protected boolean isFinished() {
-        return catapult.getRetracted();
+        return (catapult.getRetracted() || System.currentTimeMillis() - winchTime >= RandomConstants.WINCH_TIMEOUT);
     }
 
     /**

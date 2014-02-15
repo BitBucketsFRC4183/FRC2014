@@ -54,4 +54,6 @@ public class RandomConstants {
     public static final double INTAKE_OFF = 0;
     /** The constant that controls the speed of the intake roller in the opposite direction. **/
     public static final double INTAKE_BACKWARDS = 1;
+    /** The timeout for the winch. **/
+    public static long WINCH_TIMEOUT = 1500;
 }

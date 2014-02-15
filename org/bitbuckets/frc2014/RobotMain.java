@@ -31,7 +31,6 @@ public class RobotMain extends IterativeRobot {
         CommandBase.init();
         CommandBase.oi.fireButton.whenPressed(new Fire());
         CommandBase.oi.retractButton.whenPressed(new ArmCatapult());
-        //CommandBase.oi.latchPiston.whenPressed(new Fire());
         CommandBase.oi.intakeRollerButton.whenPressed(new RollerOn());
         CommandBase.oi.intakeRollerButton.whenReleased(new RollerOff());
         CommandBase.oi.outtakeButton.whenPressed(new OuttakeBall());
