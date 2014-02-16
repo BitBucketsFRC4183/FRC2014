@@ -46,6 +46,7 @@ public class RobotMain extends IterativeRobot {
      * The method run when autonomous is started.
      */
     public void autonomousInit() {
+        Scheduler.getInstance().add(new TwoBallAuto());
     }
 
     /**
