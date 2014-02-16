@@ -20,6 +20,8 @@ import org.bitbuckets.frc2014.commands.*;
  * @author Default
  */
 public class RobotMain extends IterativeRobot {
+    /** Autonomous command **/
+    private Command autonCommand;
     /** The compressor. */
     private Compressor compressor = new Compressor(RobotMap.PRESSURE_SWITCH, RobotMap.COMPRESSOR_RELAY);
 
@@ -40,12 +42,15 @@ public class RobotMain extends IterativeRobot {
         CommandBase.oi.intakeButton.whenPressed(new IntakeBall());
         CommandBase.oi.intakeButton.whenReleased(new IntakeBallOff());
         //CommandBase.oi.lightsOnOffButton.whenPressed(new SimpleLights());
+        
+        autonCommand = new TwoBallAuto();
     }
 
     /**
      * The method run when autonomous is started.
      */
     public void autonomousInit() {
+        autonCommand.start();
     }
 
     /**
