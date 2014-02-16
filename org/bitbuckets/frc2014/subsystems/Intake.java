@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import org.bitbuckets.frc2014.RobotMap;
+import org.bitbuckets.frc2014.commands.RetractIntake;
 
 /**
  * @author    
@@ -42,7 +43,7 @@ public class Intake extends Subsystem {
      * Default command to run when subsystems are all initialized.
      */
     public void initDefaultCommand() {
-
+        new RetractIntake();
     }
 
     /**

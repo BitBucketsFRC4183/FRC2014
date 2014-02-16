@@ -49,7 +49,7 @@ public class RandomConstants {
     
     ///////////////----Intake----///////////////
     /** The constant that controls the speed of the intake roller. **/
-    public static final double INTAKE_FORWARDS = -.80;
+    public static final double INTAKE_FORWARDS = -1.0;
     /** The constant that turns the intake roller off. **/
     public static final double INTAKE_OFF = 0;
     /** The constant that controls the speed of the intake roller in the opposite direction. **/
