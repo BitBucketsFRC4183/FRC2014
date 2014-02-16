@@ -20,10 +20,14 @@ import java.lang.Math;
 public class DriveTrain extends Subsystem {
     /** Base driving system standard in wpilibj */
     public RobotDrive drive;
-    /** Forward/backward power ranging from -1 (bwd) to 1 (fwd) */
-    double throttle = 0;
-    /** Rotational power ranging from -1 (ccw) to 1 (cw) */
-    double rotation = 0;
+    /** Forward/backward power ranging from -1 (backwards) to 1 (forwards). */
+    private double throttle = 0;
+    /** Rotational power ranging from -1 (counter clockwise) to 1 (clockwise). */
+    private double rotation = 0;
+    /** Left throttle for tank drive. Ranges from -1(backwards) to 1(forwards). **/
+    private double throttleLeft = 0;
+    /** Right throttle for tank drive. Ranges from -1(backwards) to 1(forwards). **/
+    private double throttleRight = 0;
     
     /**
      * Drivetrain constructor, sets up basic robot drive.
@@ -42,14 +46,26 @@ public class DriveTrain extends Subsystem {
     }
     
     /**
-     * Basic driving method.  Can be used in autonomous and teleop.
+     * Basic tank driving method.  Can be used in autonomous and teleop.
      * 
-     * @param   throttle    forward/backward power from -1 (bwd) to 1 (fwd)     
-     * @param   rotation    rotational power from -1 (ccw) to 1 (cw)
+     * @param left The left joystick throttle. Ranges from -1(backwards) to 1(forwards).
+     * @param right The right joystick throttle. Ranges from -1(backwards) to 1(forwards).
      */
-    public void drive(double throttle, double rotation){
-        throttle = accelerationLimiter(Math.abs(throttle)*throttle, Math.abs(throttle)*throttle, RandomConstants.MAX_MAG_CHANGE);
-        rotation = accelerationLimiter(Math.abs(rotation)*rotation, Math.abs(rotation)*rotation, RandomConstants.MAX_CUR_CHANGE);
+    public void tankDrive(double left, double right){
+        throttleLeft = accelerationLimiter(throttleLeft, left, RandomConstants.MAX_TANK_CHANGE);
+        throttleRight = accelerationLimiter(throttleRight, right, RandomConstants.MAX_TANK_CHANGE);
+        drive.tankDrive(throttleLeft, throttleRight);
+    }
+    
+    /**
+     * Basic arcade driving method. Can be used in autonomous and teleop.
+     * 
+     * @param outputMagnitude The forward/backward power from -1 (backwards) to 1 (forward).
+     * @param curve The rotational power from -1 (counterclockwise) to 1 (clockwise).
+     */
+    public void drive(double outputMagnitude, double curve){
+        throttle = accelerationLimiter(throttle, outputMagnitude, RandomConstants.MAX_MAG_CHANGE);
+        rotation = accelerationLimiter(rotation, curve, RandomConstants.MAX_CUR_CHANGE);
         drive.arcadeDrive(-throttle, -rotation);
     }
     
@@ -59,8 +75,8 @@ public class DriveTrain extends Subsystem {
      * See reference:
      * http://www.chiefdelphi.com/forums/showpost.php?p=1181728&postcount=2
      * 
-     * @param   outputMagnitude    forward/backward power from -1 (bwd) to 1 (fwd) 
-     * @param   curve              rotational power from -1 (ccw) to 1 (cw)
+     * @param outputMagnitude The forward/backward power from -1 (backwards) to 1 (forward).
+     * @param curve The rotational power from -1 (counterclockwise) to 1 (clockwise).
      */
     public void cheesyDrive(double outputMagnitude, double curve) {
         if(outputMagnitude >= RandomConstants.THROTTLE_CUTOFF) {

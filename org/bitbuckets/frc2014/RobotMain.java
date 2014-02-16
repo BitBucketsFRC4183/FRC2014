@@ -74,7 +74,7 @@ public class RobotMain extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        CommandBase.driveTrain.drive(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX), CommandBase.oi.stick.getAxis(Joystick.AxisType.kY));
+        CommandBase.driveTrain.tankDrive(CommandBase.oi.JoyRight.getAxis(Joystick.AxisType.kY), CommandBase.oi.JoyLeft.getAxis(Joystick.AxisType.kY));
     }
     
     /**

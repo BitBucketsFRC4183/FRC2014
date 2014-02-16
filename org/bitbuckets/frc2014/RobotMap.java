@@ -122,7 +122,15 @@ public class RobotMap {
     ///////////////////////////////////////////////////////////////////////////////
     
     /**
-     * The port the joystick is plugged in to
+     * The port the CCI is plugged into.
      */
-    public static final int JOY_1_PORT = 1;
+    public static final int CCI_PORT = 1;
+    /**
+     * The port the right joystick is plugged into.
+     */
+    public static final int JOY_RIGHT_PORT = 2;
+    /**
+     * The port the left joystick is plugged into.
+     */
+    public static final int JOY_LEFT_PORT = 3;
 }
