@@ -6,12 +6,15 @@
 
 package org.bitbuckets.frc2014.commands;
 
+import org.bitbuckets.frc2014.RandomConstants;
+
 /**
  * @author    Cal Miller cal@bpmpc.net
  * 
  * <description>
  */
 public class Fire extends CommandBase {
+    private long startTime;
     /**
      * Makes a new Fire command.
      */
@@ -26,13 +29,15 @@ public class Fire extends CommandBase {
      */
     protected void initialize() {
         catapult.setShifterNeutral();
-        catapult.setLatchOpen();//Makes the catapult go up
+        startTime = System.currentTimeMillis();
+        catapult.setWinchMotorsReverse();
     }
 
     /**
      * Called repeatedly when this Command is scheduled to run.
      */
     protected void execute() {
+        
     }
 
     /**
@@ -41,13 +46,15 @@ public class Fire extends CommandBase {
      * @return Always returns true.
      */
     protected boolean isFinished() {
-        return true;//Stops the command from running indefinately.
+        return (System.currentTimeMillis() - startTime> RandomConstants.FIRE_REVERSE_MILLIS);
     }
 
     /**
      * Called once after isFinished returns true.
      */
     protected void end() {
+        catapult.setLatchOpen();//Makes the catapult go up
+        catapult.setWinchMotorsOff();
     }
 
     /**

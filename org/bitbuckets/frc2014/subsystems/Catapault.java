@@ -26,7 +26,7 @@ public class Catapault extends Subsystem {
     private DoubleSolenoid shifter;
     
     /** digital switch that is closed (false) when the winch is armed **/
-    public DigitalInput retracted;
+    private DigitalInput retracted;
     /** Firing cylinder*/
     private Solenoid latch;
     
@@ -58,6 +58,9 @@ public class Catapault extends Subsystem {
         winch.set(RandomConstants.WINCH_SPEED);
     }
     
+    public void setWinchMotorsReverse(){
+        winch.set(-RandomConstants.WINCH_SPEED);
+    }
     /**
      * Turns off winch motors.
      */
@@ -93,6 +96,7 @@ public class Catapault extends Subsystem {
         latch.set(false);
     }
     
-    
+    public boolean getRetracted(){
+        return retracted.get();
+    }
 }
-
