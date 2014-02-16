@@ -24,8 +24,8 @@ public abstract class CommandBase extends Command {
 
     public static OI oi;
     public static DriveTrain driveTrain;
-    protected static Intake intake;
-    protected static Catapault catapult;
+    public static Intake intake;
+    public static Catapault catapult;
     public static Lights lights;
 
     public static void init() {

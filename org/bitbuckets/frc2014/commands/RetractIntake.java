@@ -26,7 +26,7 @@ public class RetractIntake extends CommandBase {
      * Called just before this Command runs the first time.
      */
     protected void initialize() {
-        intake.setDeployed(false);//Brings intake the intake.
+        intake.setDeployed(true);//Brings intake the intake.
     }
 
     /**

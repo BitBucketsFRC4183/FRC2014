@@ -9,7 +9,7 @@ package org.bitbuckets.frc2014;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.bitbuckets.frc2014.commands.*;
@@ -35,8 +35,8 @@ public class RobotMain extends IterativeRobot {
         CommandBase.oi.intakeRollerButton.whenReleased(new RollerOff());
         CommandBase.oi.outtakeButton.whenPressed(new OuttakeBall());
         CommandBase.oi.outtakeButton.whenReleased(new RollerOff());
-        CommandBase.oi.intakeDeployButton.whenPressed(new DeployIntake());
-        CommandBase.oi.intakeDeployButton.whenReleased(new RetractIntake());
+        CommandBase.oi.intakeDeployButton.whenPressed(new RetractIntake());
+        CommandBase.oi.intakeDeployButton.whenReleased(new DeployIntake());
         CommandBase.oi.intakeButton.whenPressed(new IntakeBall());
         CommandBase.oi.intakeButton.whenReleased(new IntakeBallOff());
         //CommandBase.oi.lightsOnOffButton.whenPressed(new SimpleLights());
@@ -46,6 +46,21 @@ public class RobotMain extends IterativeRobot {
      * The method run when autonomous is started.
      */
     public void autonomousInit() {
+        CommandGroup commands = new CommandGroup();
+        
+        try{
+            commands.addSequential(new DeployIntake());
+            commands.addParallel(new RollerOn());
+            commands.addSequential(new WaitAuton(1000));
+            commands.addSequential(new RollerOff());
+            commands.addSequential(new Fire());
+            commands.addSequential(new WaitAuton(1000));
+            commands.addSequential(new ArmCatapult());
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        commands.start();
     }
 
     /**
@@ -74,6 +89,21 @@ public class RobotMain extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        //System.out.println(CommandBase.catapult.getRetracted());
+//        if(!CommandBase.oi.latchPiston.get()) {
+//            CommandBase.catapult.setLatchClosed();
+//        }
+//        if(CommandBase.oi.winchButton.get()){
+//            System.out.println("winchbutton");
+//            CommandBase.catapult.setWinchMotorsOn();
+//        }else if(!CommandBase.oi.latchPiston.get()){
+//            CommandBase.catapult.setWinchMotorsOff();
+//        }
+//        if(CommandBase.oi.fireButton.get()){
+//            CommandBase.catapult.setShifterActive();
+//        }else{
+//            CommandBase.catapult.setShifterNeutral();
+//        }
         CommandBase.driveTrain.drive(CommandBase.oi.stick.getAxis(Joystick.AxisType.kX), CommandBase.oi.stick.getAxis(Joystick.AxisType.kY));
     }
     

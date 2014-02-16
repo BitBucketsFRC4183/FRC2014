@@ -24,7 +24,7 @@ public class DeployIntake extends CommandBase {
      * This initializes DeployIntake to make it set and deployed.
      */
     protected void initialize() {
-        intake.setDeployed(true);//Makes the intake go down.
+        intake.setDeployed(false);//Makes the intake go down.
     }
 
     /**
