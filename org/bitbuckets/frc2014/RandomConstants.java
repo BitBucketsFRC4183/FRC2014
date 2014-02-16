@@ -17,6 +17,8 @@ public class RandomConstants {
     public static final double MAX_MAG_CHANGE = .5;
     /** The maximum curve change. Used in stock drive. **/
     public static final double MAX_CUR_CHANGE = .5;
+    /** The maximum change in acceleration for tank drive. **/
+    public static final double MAX_TANK_CHANGE = .1;
     /** The maximum skim gain. Used in cheesy drive. **/
     public static final double SKIM_GAIN = .5;
     /** The maximum turn gain. Used in cheesy drive. **/
