@@ -6,7 +6,7 @@
 
 package org.bitbuckets.frc2014.subsystems;
 
-import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import org.bitbuckets.frc2014.RobotMap;
@@ -19,11 +19,11 @@ import org.bitbuckets.frc2014.commands.RetractIntake;
  */
 public class Intake extends Subsystem {
     /** Top ABS intake roller driven by RS550 on a Victor */
-    private Victor rollerTop;
+    private Talon rollerTop;
     /** Top ABS intake roller driven by RS550 on a Victor */
-    private Victor rollerLeft;
+    private Talon rollerLeft;
     /** Top ABS intake roller driven by RS550 on a Victor */
-    private Victor rollerRight;
+    private Talon rollerRight;
     /** Two double-acting cylinders to raise/lower the intake arm */
     private DoubleSolenoid deployer;
     
@@ -32,9 +32,9 @@ public class Intake extends Subsystem {
      */
     public Intake() {
         super();
-        rollerTop = new Victor(RobotMap.TOP_ROLLER_MOTOR);
-        rollerLeft = new Victor(RobotMap.LEFT_ROLLER_MOTOR);
-        rollerRight = new Victor(RobotMap.RIGHT_ROLLER_MOTOR);
+        rollerTop = new Talon(RobotMap.TOP_ROLLER_MOTOR);
+        rollerLeft = new Talon(RobotMap.LEFT_ROLLER_MOTOR);
+        rollerRight = new Talon(RobotMap.RIGHT_ROLLER_MOTOR);
         deployer = new DoubleSolenoid(RobotMap.INTAKE_SOLENOID_1, 
                 RobotMap.INTAKE_SOLENOID_2);
     }

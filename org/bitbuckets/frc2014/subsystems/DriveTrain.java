@@ -122,5 +122,8 @@ public class DriveTrain extends Subsystem {
             return requestedValue;
         }
     }
+    public void setWatchDogEnabled(boolean enabled) {
+        drive.setSafetyEnabled(enabled);
+    }
 }
 

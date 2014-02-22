@@ -9,6 +9,7 @@ package org.bitbuckets.frc2014;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.bitbuckets.frc2014.commands.*;
@@ -21,6 +22,7 @@ import org.bitbuckets.frc2014.commands.*;
 public class RobotMain extends IterativeRobot {
     /** The compressor. */
     private Compressor compressor = new Compressor(RobotMap.PRESSURE_SWITCH, RobotMap.COMPRESSOR_RELAY);
+    private Command autonCommand;
 
     /**
      * The method that is called when the robot is turned on or code has finished downloading.
@@ -28,6 +30,7 @@ public class RobotMain extends IterativeRobot {
     public void robotInit() {
         // Initialize all subsystems
         CommandBase.init();
+        autonCommand = new TwoBallAuto();
         CommandBase.oi.fireButton.whenPressed(new Fire());
         CommandBase.oi.retractButton.whenPressed(new ArmCatapult());
         CommandBase.oi.intakeRollerButton.whenPressed(new RollerOn());
@@ -45,6 +48,7 @@ public class RobotMain extends IterativeRobot {
      * The method run when autonomous is started.
      */
     public void autonomousInit() {
+        autonCommand.start();
     }
 
     /**
@@ -64,7 +68,7 @@ public class RobotMain extends IterativeRobot {
         // this line or commen tit out.
         
         System.out.print("Teleop Started");
-        
+        autonCommand.cancel();
         compressor.start();
     }
 
@@ -73,7 +77,8 @@ public class RobotMain extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        CommandBase.driveTrain.tankDrive(CommandBase.oi.JoyRight.getAxis(Joystick.AxisType.kY), CommandBase.oi.JoyLeft.getAxis(Joystick.AxisType.kY));
+        //CommandBase.driveTrain.tankDrive(CommandBase.oi.JoyRight.getAxis(Joystick.AxisType.kY), CommandBase.oi.JoyLeft.getAxis(Joystick.AxisType.kY));
+        CommandBase.driveTrain.drive(CommandBase.oi.Control.getX(), CommandBase.oi.Control.getY());
     }
     
     /**
