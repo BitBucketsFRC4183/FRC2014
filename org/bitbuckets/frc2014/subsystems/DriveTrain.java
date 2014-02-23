@@ -52,8 +52,8 @@ public class DriveTrain extends Subsystem {
      * @param right The right joystick throttle. Ranges from -1(backwards) to 1(forwards).
      */
     public void tankDrive(double left, double right){
-        throttleLeft = accelerationLimiter(throttleLeft, left, RandomConstants.MAX_TANK_CHANGE);
-        throttleRight = accelerationLimiter(throttleRight, right, RandomConstants.MAX_TANK_CHANGE);
+        throttleLeft = accelerationLimiter(throttleLeft, left * Math.abs(left), RandomConstants.MAX_TANK_CHANGE);
+        throttleRight = accelerationLimiter(throttleRight, right * Math.abs(right), RandomConstants.MAX_TANK_CHANGE);
         drive.tankDrive(throttleLeft, throttleRight);
     }
     
@@ -66,7 +66,7 @@ public class DriveTrain extends Subsystem {
     public void drive(double outputMagnitude, double curve){
         throttle = accelerationLimiter(throttle, outputMagnitude, RandomConstants.MAX_MAG_CHANGE);
         rotation = accelerationLimiter(rotation, curve, RandomConstants.MAX_CUR_CHANGE);
-        drive.arcadeDrive(-throttle, -rotation);
+        drive.arcadeDrive(-throttle, rotation);
     }
     
     /**
@@ -79,7 +79,7 @@ public class DriveTrain extends Subsystem {
      * @param curve The rotational power from -1 (counterclockwise) to 1 (clockwise).
      */
     public void cheesyDrive(double outputMagnitude, double curve) {
-        if(outputMagnitude >= RandomConstants.THROTTLE_CUTOFF) {
+        if(Math.abs(outputMagnitude) >= RandomConstants.THROTTLE_CUTOFF) {
             curve *= (RandomConstants.TURN_GAIN * Math.abs(outputMagnitude));
         }
         

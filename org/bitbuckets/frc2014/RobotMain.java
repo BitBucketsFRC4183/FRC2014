@@ -32,16 +32,11 @@ public class RobotMain extends IterativeRobot {
         CommandBase.init();
         autonCommand = new TwoBallAuto();
         CommandBase.oi.fireButton.whenPressed(new Fire());
-        CommandBase.oi.retractButton.whenPressed(new ArmCatapult());
-        CommandBase.oi.intakeRollerButton.whenPressed(new RollerOn());
-        CommandBase.oi.intakeRollerButton.whenReleased(new RollerOff());
+        CommandBase.oi.winchButton.whenPressed(new ArmCatapult());
         CommandBase.oi.outtakeButton.whenPressed(new OuttakeBall());
         CommandBase.oi.outtakeButton.whenReleased(new RollerOff());
-        CommandBase.oi.intakeDeployButton.whenPressed(new RetractIntake());
-        CommandBase.oi.intakeDeployButton.whenReleased(new DeployIntake());
         CommandBase.oi.intakeButton.whenPressed(new IntakeBall());
         CommandBase.oi.intakeButton.whenReleased(new IntakeBallOff());
-        //CommandBase.oi.lightsOnOffButton.whenPressed(new SimpleLights());
     }
 
     /**
@@ -78,7 +73,7 @@ public class RobotMain extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         //CommandBase.driveTrain.tankDrive(CommandBase.oi.JoyRight.getAxis(Joystick.AxisType.kY), CommandBase.oi.JoyLeft.getAxis(Joystick.AxisType.kY));
-        CommandBase.driveTrain.drive(CommandBase.oi.Control.getX(), CommandBase.oi.Control.getY());
+        CommandBase.driveTrain.drive(CommandBase.oi.Control.getY(), CommandBase.oi.Control.getX());
     }
     
     /**

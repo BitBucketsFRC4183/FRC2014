@@ -33,33 +33,16 @@ public class OI {
      */
     public Button fireButton = new JoystickButton(Control, 1);
     /**
-     * The button that runs the intake motor backwards.
-     */
-    public Button retractButton = new JoystickButton(Control, 2);
-    /**
      * The button that deploys the intake.
      */
-    public Button intakeDeployButton = new JoystickButton(Control, 4);
-    /**
-     * The button that deploys the intake and runs the roller in.
-     */
-    public Button outtakeButton = new JoystickButton(Control, 6);
+    public Button outtakeButton = new JoystickButton(Control, 4);
     /**
      * The button that deploys the intake and runs the roller.
      */
-    public Button intakeButton = new JoystickButton(Control, 8);
-    /**
-     * The button that makes the intake roller roll in.
-     */
-    public Button intakeRollerButton = new JoystickButton(Control, 12);
+    public Button intakeButton = new JoystickButton(Control, 3);
     /**
      * The button that controls the catapult winch
      */
-    public Button winchButton = new JoystickButton(Control, 3);
-     /**
-     * The button that starts and stops the lights
-     */
-    //public Button lightsOnOffButton = new JoystickButton(stick, //needs to be bound to button//;
-   
+    public Button winchButton = new JoystickButton(Control, 12);   
 }
 
