@@ -36,9 +36,9 @@ public class RobotMain extends IterativeRobot {
         CommandBase.oi.outtakeButton.whenPressed(new OuttakeBall());
         CommandBase.oi.outtakeButton.whenReleased(new RollerOff());
         CommandBase.oi.intakeButton.whenPressed(new IntakeBall());
-        CommandBase.oi.intakeButton.whenPressed(new DeployIntake());
+        //CommandBase.oi.intakeButton.whenPressed(new DeployIntake());
         CommandBase.oi.intakeButton.whenReleased(new RetractIntake());
-        CommandBase.oi.intakeButton.whenReleased(new IntakeBallOff());
+        //CommandBase.oi.intakeButton.whenReleased(new IntakeBallOff());
     }
 
     /**
@@ -75,7 +75,9 @@ public class RobotMain extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         //CommandBase.driveTrain.tankDrive(CommandBase.oi.JoyRight.getAxis(Joystick.AxisType.kY), CommandBase.oi.JoyLeft.getAxis(Joystick.AxisType.kY));
-        CommandBase.driveTrain.drive(CommandBase.oi.Control.getY(), CommandBase.oi.Control.getX());
+        //CommandBase.driveTrain.drive(CommandBase.oi.Control.getY(), CommandBase.oi.Control.getX());
+        CommandBase.driveTrain.cheesyDrive(CommandBase.oi.Control.getY(), CommandBase.oi.Control.getX());
+        //System.out.println(CommandBase.oi.Control.getY()+"  "+ CommandBase.oi.Control.getX());
     }
     
     /**
