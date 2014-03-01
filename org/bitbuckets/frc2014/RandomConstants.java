@@ -22,7 +22,7 @@ public class RandomConstants {
     /** The maximum skim gain. Used in cheesy drive. **/
     public static final double SKIM_GAIN = .5;
     /** The maximum turn gain. Used in cheesy drive. **/
-    public static final double TURN_GAIN = 1.0;
+    public static final double TURN_GAIN = 1.3;
     /** The cutoff for the throttle. Used in cheesy drive. **/
     public static final double THROTTLE_CUTOFF = .3;
     

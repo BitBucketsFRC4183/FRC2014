@@ -27,7 +27,7 @@ public class IntakeBall extends CommandBase {
      * Called just before this Command runs the first time.
      */
     protected void initialize() {
-        intake.setDeployed(true);//Makes the intake go down.
+        intake.setDeployed(false);//Makes the intake go down.
         intake.setIntakeRoller(RandomConstants.INTAKE_FORWARDS);//Makes intake pull stuff.
     } 
 

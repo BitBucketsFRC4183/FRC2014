@@ -27,6 +27,7 @@ public class RetractIntake extends CommandBase {
      */
     protected void initialize() {
         intake.setDeployed(true);//Brings intake the intake.
+        intake.setIntakeRoller(0);
     }
 
     /**

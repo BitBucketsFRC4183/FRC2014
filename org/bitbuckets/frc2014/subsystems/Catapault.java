@@ -9,7 +9,7 @@ package org.bitbuckets.frc2014.subsystems;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.bitbuckets.frc2014.RandomConstants;
 import org.bitbuckets.frc2014.RobotMap;
@@ -21,7 +21,7 @@ import org.bitbuckets.frc2014.RobotMap;
  */
 public class Catapault extends Subsystem {
     /** Ball-shifter winch powered by two MiniCIMs on Victors */
-    private Victor winch;
+    private Talon winch;
     /** Double-acting cylinder to shift between low-gear and neutral */
     private DoubleSolenoid shifter;
     
@@ -38,7 +38,7 @@ public class Catapault extends Subsystem {
      */
     public Catapault(){
         super();
-        winch = new Victor(RobotMap.WINCH_MOTOR);
+        winch = new Talon(RobotMap.WINCH_MOTOR);
         shifter = new DoubleSolenoid(RobotMap.WINCH_SHIFTER_1, RobotMap.WINCH_SHIFTER_2);
         retracted = new DigitalInput(RobotMap.CATAPAULT_LIMIT_SWITCH);
         latch = new Solenoid(RobotMap.CATAPULT_LATCH);
