@@ -21,12 +21,12 @@ public class OneBallAuto extends CommandGroup {
         addSequential(new RetractIntake());
         addSequential(new WaitMillis(1000)); //t = 6.05
         addSequential(new DriveTimeMillis(.5,0,2500)); //10.0
-        addSequential(new WaitMillis(500)); //t=.5
+        addSequential(new WaitMillis(1000)); //t=.5
         addSequential(new DeployIntake());
         addParallel(new RollerOn());
         addSequential(new WaitMillis(500)); //t = 1
         addSequential(new RollerOff());
-        addSequential(new WaitMillis(750)); //t = 1.75
+        addSequential(new WaitMillis(1250)); //t = 1.75
         addSequential(new Fire());
         addSequential(new WaitMillis(750)); //t = 2.5
         addSequential(new ArmCatapult());

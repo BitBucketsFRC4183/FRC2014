@@ -46,7 +46,7 @@ public class RobotMain extends IterativeRobot {
      * The method run when autonomous is started.
      */
     public void autonomousInit() {
-        autonCommand = new OneBallAuto();
+        autonCommand = new OneBallDriving();//OneBallAuto();
         compressor.start();
         autonCommand.start();
     }
