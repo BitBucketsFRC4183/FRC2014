@@ -20,7 +20,7 @@ public class RandomConstants {
     /** The maximum change in acceleration for tank drive. **/
     public static final double MAX_TANK_CHANGE = .1;
     /** The maximum skim gain. Used in cheesy drive. **/
-    public static final double SKIM_GAIN = .5;
+    public static final double SKIM_GAIN = 0;
     /** The maximum turn gain. Used in cheesy drive. **/
     public static final double TURN_GAIN = 1.3;
     /** The cutoff for the throttle. Used in cheesy drive. **/
@@ -47,7 +47,7 @@ public class RandomConstants {
     /** The speed of the winch. **/
     public static final double WINCH_SPEED = -1.0;
     /** The time that the winch runs in reverse to disengage the shifter. **/
-    public static long FIRE_REVERSE_MILLIS = 300;
+    public static long FIRE_REVERSE_MILLIS = 400;
     
     ///////////////----Intake----///////////////
     /** The constant that controls the speed of the intake roller. **/
@@ -57,5 +57,5 @@ public class RandomConstants {
     /** The constant that controls the speed of the intake roller in the opposite direction. **/
     public static final double INTAKE_BACKWARDS = 1;
     /** The timeout for the winch. **/
-    public static long WINCH_TIMEOUT = 1500;
+    public static long WINCH_TIMEOUT = 2500;
 }

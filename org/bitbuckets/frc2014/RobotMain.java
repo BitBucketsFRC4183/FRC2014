@@ -7,6 +7,7 @@ package org.bitbuckets.frc2014;
 
 
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
@@ -22,6 +23,7 @@ import org.bitbuckets.frc2014.commands.*;
 public class RobotMain extends IterativeRobot {
     /** The compressor. */
     private Compressor compressor = new Compressor(RobotMap.PRESSURE_SWITCH, RobotMap.COMPRESSOR_RELAY);
+    private DigitalInput autonSelect = new DigitalInput(RobotMap.AUTON_SELECT_SWITCH); 
     private Command autonCommand;
 
     /**
@@ -30,21 +32,22 @@ public class RobotMain extends IterativeRobot {
     public void robotInit() {
         // Initialize all subsystems
         CommandBase.init();
-        autonCommand = new TwoBallAuto();
         CommandBase.oi.fireButton.whenPressed(new Fire());
         CommandBase.oi.winchButton.whenPressed(new ArmCatapult());
         CommandBase.oi.outtakeButton.whenPressed(new OuttakeBall());
         CommandBase.oi.outtakeButton.whenReleased(new RollerOff());
         CommandBase.oi.intakeButton.whenPressed(new IntakeBall());
-        //CommandBase.oi.intakeButton.whenPressed(new DeployIntake());
         CommandBase.oi.intakeButton.whenReleased(new RetractIntake());
-        //CommandBase.oi.intakeButton.whenReleased(new IntakeBallOff());
+        CommandBase.oi.catchButton.whenPressed(new DeployIntake());
+        CommandBase.oi.catchButton.whenReleased(new RetractIntake());
     }
 
     /**
      * The method run when autonomous is started.
      */
     public void autonomousInit() {
+        autonCommand = new OneBallAuto();
+        compressor.start();
         autonCommand.start();
     }
 
@@ -65,7 +68,9 @@ public class RobotMain extends IterativeRobot {
         // this line or commen tit out.
         
         System.out.print("Teleop Started");
-        autonCommand.cancel();
+        if(autonCommand != null) {
+            autonCommand.cancel();
+        }
         compressor.start();
     }
 
@@ -76,7 +81,7 @@ public class RobotMain extends IterativeRobot {
         Scheduler.getInstance().run();
         //CommandBase.driveTrain.tankDrive(CommandBase.oi.JoyRight.getAxis(Joystick.AxisType.kY), CommandBase.oi.JoyLeft.getAxis(Joystick.AxisType.kY));
         //CommandBase.driveTrain.drive(CommandBase.oi.Control.getY(), CommandBase.oi.Control.getX());
-        CommandBase.driveTrain.cheesyDrive(CommandBase.oi.Control.getY(), CommandBase.oi.Control.getX());
+        CommandBase.driveTrain.cheesyDrive(-CommandBase.oi.Control.getY(), -CommandBase.oi.Control.getX());
         //System.out.println(CommandBase.oi.Control.getY()+"  "+ CommandBase.oi.Control.getX());
     }
     

@@ -29,20 +29,24 @@ public class OI {
     public Joystick JoyLeft = new Joystick(RobotMap.JOY_LEFT_PORT);
     
     /**
-     * The button that fires the ball.
+     * The button that controls the catapult winch
      */
-    public Button fireButton = new JoystickButton(Control, 1);
-    /**
-     * The button that deploys the intake.
-     */
-    public Button outtakeButton = new JoystickButton(Control, 4);
+    public Button winchButton = new JoystickButton(Control, 1);
     /**
      * The button that deploys the intake and runs the roller.
      */
     public Button intakeButton = new JoystickButton(Control, 3);
     /**
-     * The button that controls the catapult winch
+     * The button that runs the roller backward.
      */
-    public Button winchButton = new JoystickButton(Control, 12);   
+    public Button outtakeButton = new JoystickButton(Control, 4);
+    /**
+     * The button that fires the ball.
+     */
+    public Button fireButton = new JoystickButton(Control, 7);
+    /**
+     * The switch that deploys the intake without running the roller.
+     */
+    public Button catchButton = new JoystickButton(Control, 12);
 }
 
