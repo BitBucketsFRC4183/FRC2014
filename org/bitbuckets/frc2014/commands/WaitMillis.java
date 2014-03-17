@@ -25,7 +25,7 @@ public class WaitMillis extends CommandBase {
     }
 
     /**
-     * Called at the beginning of the command.
+     * Called when the command is initialized.
      */
     protected void initialize() {
         timeInit = System.currentTimeMillis();

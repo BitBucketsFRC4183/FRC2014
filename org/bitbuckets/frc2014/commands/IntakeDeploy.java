@@ -3,41 +3,39 @@
  *
  * FRC 2014 Codebase
  */
-
 package org.bitbuckets.frc2014.commands;
 
 /**
- * @author    James Wyeth james.wyeth@gmail.com
+ * Deploys the intake pistons, letting the ball go in or out.
  * 
- * Deploys intake
+ * @author James Wyeth james.wyeth@gmail.com
  */
-public class DeployIntake extends CommandBase {
+public class IntakeDeploy extends CommandBase {
 
     /**
-     * This constructor makes a new DeployIntake command.
+     * Makes a new IntakeDeploy command. Tells the robot that it needs the intake subsystem to run.
      */
-    public DeployIntake() {
+    public IntakeDeploy() {
         requires(intake);
     }
 
     /**
-     * This initializes DeployIntake to make it set and deployed.
+     * Called when the command is initialized. Drops the intake.
      */
     protected void initialize() {
-        intake.setDeployed(false);//Makes the intake go down.
+        intake.setDeployed(false);
     }
 
     /**
-     * Called repeatedly when this Command is scheduled to run.
-     * 
+     * Called repeatedly while this Command is running.
      */
     protected void execute() {
     }
 
     /**
-     * Make this return true when this Command no longer needs to run execute().
+     * Returns true when the command is finished. Always returns true.
      * 
-     * @return Always returns true.
+     * @return true.
      */
     protected boolean isFinished() {
         return true;//Stops the command from running indefinately.

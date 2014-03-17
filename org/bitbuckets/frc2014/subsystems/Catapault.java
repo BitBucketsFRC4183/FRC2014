@@ -39,7 +39,7 @@ public class Catapault extends Subsystem {
     public Catapault(){
         super();
         winch = new Talon(RobotMap.WINCH_MOTOR);
-        shifter = new DoubleSolenoid(RobotMap.WINCH_SHIFTER_1, RobotMap.WINCH_SHIFTER_2);
+        shifter = new DoubleSolenoid(RobotMap.WINCH_SHIFTER_A, RobotMap.WINCH_SHIFTER_B);
         retracted = new DigitalInput(RobotMap.CATAPAULT_LIMIT_SWITCH);
         latch = new Solenoid(RobotMap.CATAPULT_LATCH);
     }

@@ -10,24 +10,26 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
- * 
+ * This class stores the ports that all the operator input stuff is plugged into.
  * 
  * @author Default
  */
 public class OI {
+    //////////////////////////////////////JoySticks//////////////////////////////////////
     /**
-     * The CCI(Custom Control Interface).
+     * The CCI(Custom Control Interface). This is the operator panel control, and currently also the driver control. It acts like a joystick.
      */
     public Joystick Control = new Joystick(RobotMap.CCI_PORT);
     /**
-     * The right joystick for tank drive.
+     * The port for the right joystick for tank drive.
      */
     public Joystick JoyRight = new Joystick(RobotMap.JOY_RIGHT_PORT);
     /**
-     * The right joystick for tank drive.
+     * The port for the left joystick for tank drive.
      */
     public Joystick JoyLeft = new Joystick(RobotMap.JOY_LEFT_PORT);
     
+    //////////////////////////////////////Buttons//////////////////////////////////////
     /**
      * The button that controls the catapult winch
      */

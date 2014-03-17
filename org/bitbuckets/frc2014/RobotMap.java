@@ -6,7 +6,7 @@
 package org.bitbuckets.frc2014;
 
 /**
- * 
+ * The map of the physical robot. Not really a map. More of a list of where everything is plugged in. on the robot.
  * 
  * @author Default
  */
@@ -17,25 +17,25 @@ public class RobotMap {
     /////////////////////////////////////////////////////////////////////////////
     
     /**
-     * The right front motor on the drivetrain.
+     * The front right motor on the drivetrain.
      */
     public static final int R_MOTOR_A = 1;
     /**
-     * The right rear motor on the drivetrain.
+     * The rear right motor on the drivetrain.
      */
     public static final int R_MOTOR_B = 2;
     /**
-     * The left front motor on the drivetrain.
+     * The front left motor on the drivetrain.
      */
     public static final int L_MOTOR_A = 3;
     /**
-     * The left rear motor on the drivetrain.
+     * The rear left motor on the drivetrain.
      */
     public static final int L_MOTOR_B = 4;
     /**
-     * The top intake roller motor.
+     * The front intake roller motor.
      */
-    public static final int TOP_ROLLER_MOTOR = 5;
+    public static final int FRONT_ROLLER_MOTOR = 5;
     /**
      * The right intake roller motor.
      */
@@ -45,7 +45,7 @@ public class RobotMap {
      */
     public static final int LEFT_ROLLER_MOTOR = 7;
     /**
-     * Mini-CIMs driving ball-shifter winch.
+     * The CIMs driving the winch.
      */
     public static final int WINCH_MOTOR = 8;
     
@@ -56,19 +56,19 @@ public class RobotMap {
     /**
      * The first port for the double solenoid controlling the intake pistons.
      */
-    public static final int INTAKE_SOLENOID_1 = 1;
+    public static final int INTAKE_SOLENOID_A = 1;
     /**
      * The second port for the double solenoid controlling the intake pistons.
      */
-    public static final int INTAKE_SOLENOID_2 = 2;
+    public static final int INTAKE_SOLENOID_B = 2;
     /**
      * The first port for the double solenoid controlling the winch shifter.
      */
-    public static final int WINCH_SHIFTER_1 = 3;
+    public static final int WINCH_SHIFTER_A = 3;
     /**
      * The second port for the double solenoid controlling the winch shifter.
      */
-    public static final int WINCH_SHIFTER_2 = 4;
+    public static final int WINCH_SHIFTER_B = 4;
     /**
      * The latch solenoid for firing
      */
@@ -78,10 +78,6 @@ public class RobotMap {
     /////////////////////////////////----RELAY----/////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////
     
-    /**
-     * The relay that's connected to the lights.
-     */
-    public static final int LIGHT_RELAY = 2;
     /**
      * The relay the compressor is plugged in to
      */
@@ -96,24 +92,27 @@ public class RobotMap {
      */
     public static final int CATAPAULT_LIMIT_SWITCH = 1;
     /**
-     * The right encoder for the drivetrain.
+     * The first channel of the right encoder for the drivetrain.
      */
     public static final int R_ENCODER_A = 2;
     /**
-     * The right encoder for the drivetrain.
+     * The second channel on the right encoder for the drivetrain.
      */
     public static final int R_ENCODER_B = 2;
     /**
-     * The left encoder for the drivetrain.
+     * The first channel for the left encoder for the drivetrain.
      */
     public static final int L_ENCODER_A = 4;
     /**
-     * The left encoder for the drivetrain.
+     * The second channel for the left encoder for the drivetrain.
      */
     public static final int L_ENCODER_B = 4;
+    /**
+     * The switch used to choose between autonomous modes.
+     */
     public static final int AUTON_SELECT_SWITCH = 13;
     /**
-     * The switch that tells the compressor the max pressure
+     * The switch that tells the compressor if max pressure has been reached.
      */
     public static final int PRESSURE_SWITCH = 14;
     
@@ -123,7 +122,7 @@ public class RobotMap {
     ///////////////////////////////////////////////////////////////////////////////
     
     /**
-     * The port the CCI is plugged into.
+     * The port the CCI (Custom Controller Interface) is plugged into.
      */
     public static final int CCI_PORT = 1;
     /**

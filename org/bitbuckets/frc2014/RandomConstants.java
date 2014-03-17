@@ -47,7 +47,7 @@ public class RandomConstants {
     /** The speed of the winch. **/
     public static final double WINCH_SPEED = -1.0;
     /** The time that the winch runs in reverse to disengage the shifter. **/
-    public static long FIRE_REVERSE_MILLIS = 400;
+    public static final long FIRE_REVERSE_MILLIS = 400;
     
     ///////////////----Intake----///////////////
     /** The constant that controls the speed of the intake roller. **/
@@ -57,5 +57,7 @@ public class RandomConstants {
     /** The constant that controls the speed of the intake roller in the opposite direction. **/
     public static final double INTAKE_BACKWARDS = 1;
     /** The timeout for the winch. **/
-    public static long WINCH_TIMEOUT = 2500;
+    public static final long WINCH_TIMEOUT = 2500;
+    /** The delay between when the fire command is called and the intake roller is reversed is the Pass command group. **/
+    public static final int PASS_FIRE_DELAY = 400;
 }

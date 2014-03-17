@@ -3,20 +3,21 @@
  *
  * FRC 2014 Codebase
  */
-
 package org.bitbuckets.frc2014.commands;
 
 import org.bitbuckets.frc2014.RandomConstants;
 
 /**
- * @author    Cal Miller cal@bpmpc.net
+ * Fires the catapult.
  * 
- * <description>
+ * @author Cal Miller cal@bpmpc.net (Probably)
  */
 public class Fire extends CommandBase {
-    private long startTime;
+    /** The time when the command is initialized. **/
+    private long timeInit;
+    
     /**
-     * Makes a new Fire command.
+     * Makes a new Fire command. Tells the robot that it needs the catapult subsystem to run.
      */
     public Fire() {
         // Use requires() here to declare subsystem dependencies
@@ -25,35 +26,35 @@ public class Fire extends CommandBase {
     }
 
     /**
-     * Called just before this Command runs the first time.
+     * Called when the command is initialized. Neutralizes the shifter, sets the initial time, and starts running the motors.
      */
     protected void initialize() {
         catapult.setShifterNeutral();
-        startTime = System.currentTimeMillis();
+        timeInit = System.currentTimeMillis();
         catapult.setWinchMotorsReverse();
     }
 
     /**
-     * Called repeatedly when this Command is scheduled to run.
+     * Called repeatedly when this Command is scheduled to run. Keeps the winch motors on and the watchdog happy.
      */
     protected void execute() {
         catapult.setWinchMotorsReverse();
     }
 
     /**
-     * Make this return true when this Command no longer needs to run execute().
+     * Returns true when the command is finished. Checks to see if the winch has rewound for enough time.
      * 
-     * @return Always returns true.
+     * @return true if the winch motors have rewound for a satisfactory amount of time.
      */
     protected boolean isFinished() {
-        return (System.currentTimeMillis() - startTime> RandomConstants.FIRE_REVERSE_MILLIS);
+        return (System.currentTimeMillis() - timeInit> RandomConstants.FIRE_REVERSE_MILLIS);
     }
 
     /**
-     * Called once after isFinished returns true.
+     * Called once after isFinished returns true. Turns the winch motors off and fires the catapult.
      */
     protected void end() {
-        catapult.setLatchOpen();//Makes the catapult go up
+        catapult.setLatchOpen();
         catapult.setWinchMotorsOff();
     }
 

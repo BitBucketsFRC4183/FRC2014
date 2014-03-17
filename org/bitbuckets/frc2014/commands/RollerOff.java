@@ -23,7 +23,7 @@ public class RollerOff extends CommandBase {
     }
 
     /**
-     * Called just before this Command runs the first time.
+     * Called when the command is initialized.
      */
     protected void initialize() {
         intake.setIntakeRoller(RandomConstants.INTAKE_OFF);//Turns the roller off.

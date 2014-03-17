@@ -9,27 +9,25 @@ package org.bitbuckets.frc2014.commands;
 import org.bitbuckets.frc2014.RandomConstants;
 
 /**
- * @author    Cal Miller cal@bpmpc.net
- * 
- * <description>
+ *
+ * @author Default
  */
-public class OuttakeBall extends CommandBase {
+public class RollerForward extends CommandBase {
 
     /**
-     * Creates a new OuttakeBall command.
+     * Creates a new RollerOn command.
      */
-    public OuttakeBall() {
+    public RollerForward() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(intake);
     }
 
     /**
-     * Called just before this Command runs the first time.
+     * Called when the command is initialized.
      */
     protected void initialize() {
-        //in.setDeployed(true);//Makes the intake go out.
-        intake.setIntakeRoller(RandomConstants.INTAKE_BACKWARDS);//Makes the roller go backwards.
+        intake.setIntakeRoller(RandomConstants.INTAKE_FORWARDS);//Makes the roller go intake.
     }
 
     /**
@@ -44,7 +42,7 @@ public class OuttakeBall extends CommandBase {
      * @return Always returns true.
      */
     protected boolean isFinished() {
-        return true;//Stops the command from running indefinately.
+        return true;
     }
 
     /**
@@ -55,7 +53,7 @@ public class OuttakeBall extends CommandBase {
 
     /**
      * Called when another command which requires one or more of the same
-     * subsystems is scheduled to run.
+       subsystems is scheduled to run.
      */
     protected void interrupted() {
     }

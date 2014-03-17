@@ -10,26 +10,27 @@ import org.bitbuckets.frc2014.RandomConstants;
 
 /**
  * @author    Cal Miller cal@bpmpc.net
- * 
- * <description>
+ 
+ <description>
  */
-public class IntakeBall extends CommandBase {
+public class RollerReverse extends CommandBase {
+
     /**
-     * Creates a new IntakeBall command.
+     * Creates a new OuttakeBall command.
      */
-    public IntakeBall() {
+    public RollerReverse() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(intake);
     }
 
     /**
-     * Called just before this Command runs the first time.
+     * Called when the command is initialized.
      */
     protected void initialize() {
-        intake.setDeployed(false);//Makes the intake go down.
-        intake.setIntakeRoller(RandomConstants.INTAKE_FORWARDS);//Makes intake pull stuff.
-    } 
+        //in.setDeployed(true);//Makes the intake go out.
+        intake.setIntakeRoller(RandomConstants.INTAKE_BACKWARDS);//Makes the roller go backwards.
+    }
 
     /**
      * Called repeatedly when this Command is scheduled to run.
@@ -40,7 +41,7 @@ public class IntakeBall extends CommandBase {
     /**
      * Make this return true when this Command no longer needs to run execute().
      * 
-     * @return 
+     * @return Always returns true.
      */
     protected boolean isFinished() {
         return true;//Stops the command from running indefinately.
@@ -54,7 +55,7 @@ public class IntakeBall extends CommandBase {
 
     /**
      * Called when another command which requires one or more of the same
-       subsystems is scheduled to run.
+     * subsystems is scheduled to run.
      */
     protected void interrupted() {
     }

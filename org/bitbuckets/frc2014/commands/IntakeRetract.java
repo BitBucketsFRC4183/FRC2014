@@ -3,46 +3,42 @@
  *
  * FRC 2014 Codebase
  */
-
 package org.bitbuckets.frc2014.commands;
 
 /**
- * @author    <Cal> <Miller>
+ * Retracts the intake.
  * 
- * <description>
+ * @author James Wyeth james.wyeth@gmail.com
  */
-public class RetractIntake extends CommandBase {
+public class IntakeRetract extends CommandBase {
     
     /**
-     * Creates a new RetractIntake command.
+     * Makes a new ArmCatapult command. Tells the robot that it needs the intake subsystem to run.
      */
-    public RetractIntake() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    public IntakeRetract() {
         requires(intake);
     }
 
     /**
-     * Called just before this Command runs the first time.
+     * Called when the command is initialized.
      */
     protected void initialize() {
         intake.setDeployed(true);//Brings intake the intake.
-        intake.setIntakeRoller(0);
     }
 
     /**
-     * Called repeatedly when this Command is scheduled to run.
+     * Called repeatedly while this Command is running. Does nothing, as this command doesn't run anything continuously.
      */
     protected void execute() {
     }
 
     /**
-     * Make this return true when this Command no longer needs to run execute().
+     * Returns true when the command is finished. This command doesn't do anything continuously so it will always return true, stopping the command immediately after initialize() is called.
      * 
-     * @return Always returns true.
+     * @return true.
      */
     protected boolean isFinished() {
-        return true;//Stops the command from running indefinately.
+        return true;
     }
 
     /**

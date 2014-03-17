@@ -14,8 +14,8 @@ import java.lang.Math;
 
 /**
  * @author James Wyeth    
- * 
- * Collection of actuators and sensors that form the drive train subsystem.
+ 
+ llection of actuators and sensors that form the drive train subsystem.
  */
 public class DriveTrain extends Subsystem {
     /** Base driving system standard in wpilibj */

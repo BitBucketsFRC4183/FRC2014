@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import org.bitbuckets.frc2014.RobotMap;
-import org.bitbuckets.frc2014.commands.RetractIntake;
+import org.bitbuckets.frc2014.commands.IntakeRetract;
 
 /**
  * @author    
@@ -32,18 +32,18 @@ public class Intake extends Subsystem {
      */
     public Intake() {
         super();
-        rollerTop = new Talon(RobotMap.TOP_ROLLER_MOTOR);
+        rollerTop = new Talon(RobotMap.FRONT_ROLLER_MOTOR);
         rollerLeft = new Talon(RobotMap.LEFT_ROLLER_MOTOR);
         rollerRight = new Talon(RobotMap.RIGHT_ROLLER_MOTOR);
-        deployer = new DoubleSolenoid(RobotMap.INTAKE_SOLENOID_1, 
-                RobotMap.INTAKE_SOLENOID_2);
+        deployer = new DoubleSolenoid(RobotMap.INTAKE_SOLENOID_A, 
+                RobotMap.INTAKE_SOLENOID_B);
     }
     
     /**
      * Default command to run when subsystems are all initialized.
      */
     public void initDefaultCommand() {
-        new RetractIntake();
+        new IntakeRetract();
     }
 
     /**
