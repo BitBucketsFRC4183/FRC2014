@@ -14,6 +14,8 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import org.bitbuckets.frc2014.commands.*;
+import org.bitbuckets.frc2014.commands.groups.AutoTwoBallDrive;
+import org.bitbuckets.frc2014.commands.groups.FireWinch;
 import org.bitbuckets.frc2014.commands.groups.IntakeDeployShortRoller;
 import org.bitbuckets.frc2014.commands.groups.IntakeOffRetract;
 
@@ -36,7 +38,7 @@ public class RobotMain extends IterativeRobot {
     public void robotInit() {
         // Adds all the buttons 
         CommandBase.init();
-        CommandBase.oi.fireButton.whenPressed(new Fire());
+        CommandBase.oi.fireButton.whenPressed(new FireWinch());
         CommandBase.oi.winchButton.whenPressed(new ArmCatapult());
         CommandBase.oi.outtakeButton.whenPressed(new RollerReverse());
         CommandBase.oi.outtakeButton.whenReleased(new RollerOff());
@@ -50,7 +52,7 @@ public class RobotMain extends IterativeRobot {
      * The method run when autonomous is initialized. Initializes the autonomous command, starts the compressor, and starts the autonomous command.
      */
     public void autonomousInit() {
-        autonCommand = new AutoOneBallDriveKevin();//AutoOneBall();
+        autonCommand = new AutoTwoBallDrive();//AutoOneBall();
         compressor.start();
         autonCommand.start();
     }
